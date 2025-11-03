@@ -93,7 +93,7 @@
 
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/images/Bay.jpg" Width="300" />
-                                <TextBlock Text="This is a picture of Onewhero Bay!" Margin="20,5,0,0" Foreground="White"/>
+                                <TextBlock Text="This is a picture of Onewhero Bay! Come join!" Margin="20,5,0,0" Foreground="White"/>
                             </StackPanel>
                     </StackPanel>
 
