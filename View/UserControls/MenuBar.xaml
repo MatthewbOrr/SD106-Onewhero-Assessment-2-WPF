@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="SD106_Onewhero_Assessment_2.View.UserControls.MenuBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SD106_Onewhero_Assessment_2.View.UserControls"
+             mc:Ignorable="d" 
+             Height="70" d:DesignWidth="800">
+    <Grid>
+        <Rectangle Fill="White"/>
+        <Menu VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="White">
+            <MenuItem Header="Home Page" FontSize="18" Click="HomePage_Click"/>
+            <MenuItem Header="Events" FontSize="18" Click="Events_Click">
+                <MenuItem Header="Special Exhibitions"/>
+                <MenuItem Header="Animal Encounters"/>
+                <MenuItem Header="Seasonal Events"/>
+                <MenuItem Header="Booking"/>
+            </MenuItem>
+            <MenuItem Header="Museum" FontSize="18">
+                <MenuItem Header="Kiwi House" Click="Museum_Click"/>
+                <MenuItem Header="Reptile Exhibit" Click="Museum_Click"/>
+                <MenuItem Header="Native Birds" Click="Museum_Click"/>
+                <MenuItem Header="Booking"/>
+            </MenuItem>
+            <MenuItem Header="Marae" FontSize="18">
+                <MenuItem Header="Historical Information" Click="Marae_Click"/>
+                <MenuItem Header="Rules" Click="Marae_Click"/>
+                <MenuItem Header="Booking" Click="Marae_Click"/>
+            </MenuItem>
+            <MenuItem Name="btnAboutUs" Header="About Us" FontSize="18">
+                <MenuItem Header="About Us" Click="AboutUs_Click"/>
+                <MenuItem Header="FAQ's" Click="AboutUs_Click"/>
+                <MenuItem Header="Contact Us" Click="AboutUs_Click"/>
+                <MenuItem Header="Terms and Conditions" Click="AboutUs_Click"/>
+                <MenuItem Header="Privacy Policy" Click="AboutUs_Click"/>
+            </MenuItem>
+        </Menu>
+        <Menu VerticalAlignment="Top" HorizontalAlignment="Right" Background="White">
+            <MenuItem  Header="Sign In/Up" FontSize="18">
+                <MenuItem Header="Sign Up"/>
+                <MenuItem Header="Sign In"/>
+            </MenuItem>
+        </Menu>
+       
+    </Grid>
+</UserControl>
