@@ -65,7 +65,7 @@ Relationships are defined using foreign keys and cardinality constraints to ensu
 4. Build and run the project in Visual Studio
 
 
-# 👥 Team Roles
+# Team Roles
 
 Product Owner (PO): Matthew
 
@@ -79,7 +79,7 @@ Quality Assurance (QA) Engineer: Matthew
 
 User Testers/Clients: Han, Matthew, Others we find
 
-# 📅 Sprint Timeline
+# Sprint Timeline
 
 SPRINT 1 - WEEK 4
 - Planning & Initial Design
@@ -121,7 +121,7 @@ SPRINT 4 - WEEK 7,8 (or else)
 - Final System
 - Test reports
 
-# 📌 License
+# License
 
 This project is for educational purposes under Yoobee College guidelines. Not intended for commercial use.
 
