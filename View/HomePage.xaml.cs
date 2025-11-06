@@ -14,17 +14,15 @@ using System.Windows.Shapes;
 
 namespace SD106_Onewhero_Assessment_2.View
 {
-    /// <summary>
-    /// Interaction logic for LoginView.xaml
-    /// </summary>
-    public partial class HomePageView : Window
+
+    public partial class HomePage : Page
     {
-        public HomePageView()
+        public HomePage()
         {
             InitializeComponent();
         }
 
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+       /* private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
@@ -38,17 +36,12 @@ namespace SD106_Onewhero_Assessment_2.View
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
-        }
+        }*/
 
         private void Image_SizeChanged(object sender, SizeChangedEventArgs e)
         {
 
         }
 
-        /* private void Hyperlink_Login_Click(object sender, RoutedEventArgs e)
-         {
-             LoginView loginView = new LoginView();
-             loginView.Show();
-         }*/
     }
 }

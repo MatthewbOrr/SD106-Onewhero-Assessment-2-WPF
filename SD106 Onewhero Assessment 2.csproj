@@ -37,10 +37,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="View\HomePageView.xaml.cs">
+    <Compile Update="View\HomePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\RegisterView.xaml.cs">
+    <Compile Update="View\RegisterPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

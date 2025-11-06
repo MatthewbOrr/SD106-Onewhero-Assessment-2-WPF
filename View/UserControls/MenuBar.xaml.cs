@@ -25,7 +25,7 @@ namespace SD106_Onewhero_Assessment_2.View.UserControls
             InitializeComponent();
         }
 
-        private void AboutUs_Click(object sender, RoutedEventArgs e)
+        /*private void AboutUs_Click(object sender, RoutedEventArgs e)
         {
             var main = (MainWindow)Application.Current.MainWindow;
             main.MainFrame.Navigate(new AboutUs());
@@ -55,7 +55,7 @@ namespace SD106_Onewhero_Assessment_2.View.UserControls
             main.MainFrame.Navigate(new HomePage());
         }
 
-        /*private void btnClickHP(object sender, RoutedEventArgs e)
+        private void btnClickHP(object sender, RoutedEventArgs e)
         {
             Main.Content = new MainWindow();
         }*/

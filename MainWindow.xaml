@@ -6,49 +6,55 @@
         xmlns:local="clr-namespace:SD106_Onewhero_Assessment_2"
         xmlns:userControls="clr-namespace:SD106_Onewhero_Assessment_2.View.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="HomePageView" Height="550" Width="800"
         WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
         MouseDown="Window_MouseDown" Background="Transparent" AllowsTransparency="True">
-    
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="401*"/>
-            <ColumnDefinition Width="399*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="70"/>
-            <RowDefinition/>
-            <RowDefinition Height="30"/>
-        </Grid.RowDefinitions>
 
-        <!-- Header -->
-        <userControls:MenuBar Grid.ColumnSpan="2"/>
+    <Border CornerRadius="35">
+        
+        <Border.Background>
+            <ImageBrush ImageSource="/images/onewhero-bay.jpeg" Stretch="None"/>
+        </Border.Background>
+        <Border CornerRadius="30" BorderThickness="5" Opacity="0.93">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="#156aac" Offset="0"/>
+                    <GradientStop Color="#097153" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop  Color="#094471" Offset="0"/>
+                    <GradientStop  Color="#093556" Offset="0.75"/>
+                </LinearGradientBrush>
+            </Border.Background>
 
-        <!-- Content -->
-        <Grid Grid.Row="1" Grid.ColumnSpan="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="10*"/>
-                <ColumnDefinition Width="80*"/>
-                <ColumnDefinition Width="10*"/>
-            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
 
-            <!-- Left spacer -->
-            <Rectangle Fill="LightGray" Grid.Column="0"/>
+                
+                <Frame Name="HeaderFrame"
+                       Grid.Row="0"
+                       NavigationUIVisibility="Hidden"
+                       Background="Transparent"/>
+                
+                <Frame Name="MainFrame"
+                       Grid.Row="1"
+                       NavigationUIVisibility="Hidden"
+                       Margin="3"
+                       Background="Transparent"/>
 
-            <!-- Center Content -->
-            <Rectangle Fill="LightBlue" Grid.Column="1"/>
-            <Frame  Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+                <Frame Name="FooterFrame"
+                       Grid.Row="2"
+                       NavigationUIVisibility="Hidden"
+                       Background="Transparent"/>
 
-            <!-- Right spacer -->
-            <Rectangle Fill="LightGray" Grid.Column="2"/>
-
-        </Grid>
-
-        <!-- Footer -->
-        <Rectangle Grid.Row="1" Fill="Green" Grid.ColumnSpan="2" Margin="0,334,0,0" Grid.RowSpan="2"/>
-
-        <!--<TextBlock Name="tbstatus" FontSize="50"/>
-        <Button Name="btnToggleRun" Width="100" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center"
-                Content="Learn More" FontSize="15" Click="btnToggleRun_Click" />-->
-    </Grid>
+            </Grid>
+            
+        </Border>
+    </Border>
 </Window>

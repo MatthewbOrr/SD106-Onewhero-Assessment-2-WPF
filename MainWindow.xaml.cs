@@ -14,12 +14,23 @@ namespace SD106_Onewhero_Assessment_2
                 DragMove();
         }
 
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
         bool running  = false;
         public MainWindow()
         {
             DataContext = this;
             InitializeComponent();
-            MainFrame.Navigate(new HomePage());
+            MainFrame.Navigate(new View.LoginPage());
+            HeaderFrame.Navigate(new View.LoginHeaderPage());
 
         }
         private string boundText;
@@ -35,11 +46,6 @@ namespace SD106_Onewhero_Assessment_2
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BoundText"));
                 //OnPropertyChanged();
             }
-        }
-
-        private void test1_Click(object sender, RoutedEventArgs e)
-        {
-         
         }
     }
 }

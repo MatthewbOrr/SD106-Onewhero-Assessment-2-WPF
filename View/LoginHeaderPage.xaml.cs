@@ -10,40 +10,33 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SD106_Onewhero_Assessment_2.View
 {
     /// <summary>
-    /// Interaction logic for LoginView.xaml
+    /// Interaction logic for LoginHeaderPage.xaml
     /// </summary>
-    public partial class RegisterView : Window
+    public partial class LoginHeaderPage : Page
     {
-        public RegisterView()
-        {
-            InitializeComponent();
-        }
-
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-                DragMove();
-        }
-
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
-            WindowState = WindowState.Minimized;
+            Window parentWindow = Window.GetWindow(this);
+            if (parentWindow != null)
+            {
+                parentWindow.WindowState = WindowState.Minimized;
+            }
+
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
-
-        private void Hyperlink_Login_Click(object sender, RoutedEventArgs e)
+        public LoginHeaderPage()
         {
-            LoginView loginView = new LoginView();
-            loginView.Show();
+            InitializeComponent();
         }
     }
 }

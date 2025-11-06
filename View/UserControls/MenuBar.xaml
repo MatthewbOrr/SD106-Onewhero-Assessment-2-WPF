@@ -9,7 +9,7 @@
     <Grid>
         <Rectangle Fill="White"/>
         <Menu VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="White">
-            <MenuItem Header="Home Page" FontSize="18" Click="HomePage_Click"/>
+            <!--<MenuItem Header="Home Page" FontSize="18" Click="HomePage_Click"/>
             <MenuItem Header="Events" FontSize="18" Click="Events_Click">
                 <MenuItem Header="Special Exhibitions"/>
                 <MenuItem Header="Animal Encounters"/>
@@ -39,7 +39,7 @@
             <MenuItem  Header="Sign In/Up" FontSize="18">
                 <MenuItem Header="Sign Up"/>
                 <MenuItem Header="Sign In"/>
-            </MenuItem>
+            </MenuItem>-->
         </Menu>
        
     </Grid>
