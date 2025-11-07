@@ -5,11 +5,98 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SD106_Onewhero_Assessment_2.View"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="1000" d:DesignWidth="800"
       Title="AttractionsPage">
 
-    <Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
-        
-    </Grid>
+    <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Margin="10">
+        <Grid Width="680">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Onewhero Heritage Site Attractions" FontSize="24" Foreground="White"
+                       FontWeight="SemiBold" HorizontalAlignment="Center" Margin="10,0,10,20"/>
+            
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0"  Source="/images/Marae_2.jpg" Margin="10"/>
+
+                <TextBlock Grid.Column="1" Margin="10,30,10,10" TextWrapping="Wrap" Foreground="White">
+                    <Run Text="See our cultural Marae grounds and learn the history of New Zealand and the surrounding events that have shaped the land and world around us today."/>
+                    <LineBreak></LineBreak>
+                    <LineBreak/>
+                <Run Text="Have an authentic experience taken back in history and how it fits into the modern world. Learn about your Whanau (family) and Whakapapa (Ancestors) and the importance of Te Reo history."/>
+                </TextBlock>
+            </Grid>
+            
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="300"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" Margin="10,30,10,10" TextWrapping="Wrap" Foreground="White">
+        <Run Text="New Zealand is home to some of the best native birds around. Come get up close and personal with our native birds and learn how important they are to our ecosystem and surrounding nature."/>
+                </TextBlock>
+
+                <Image Grid.Column="1"  Source="/images/Native Birds.jpg" Margin="10"/>
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0"  Source="/images/Kiwi_Encounter.jpg" Margin="10"/>
+
+                <TextBlock Grid.Column="1" Margin="10,30,10,10" TextWrapping="Wrap" Foreground="White">
+                    <Run Text="The Kiwi is one of New Zealand's most protected native birds. On the edge of extinction we have managed to bring back the fuzzy little birds and work hard at making them safe and creating environments where they can thrive and live."/>
+                        <LineBreak></LineBreak>
+                        <LineBreak/>
+                    <Run Text="Come have an up close experience with the nocturnal flightless birds today!"/>
+                </TextBlock>
+            </Grid>
+
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="300"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" Margin="10,30,10,10" TextWrapping="Wrap" Foreground="White">
+                    <Run Text="Come learn all about reptiles from all over New Zealand. You might even get a chance to hold one"/>
+                        <LineBreak></LineBreak>
+                        <LineBreak/>
+                    <Run Text="Learn about the ones that run wild in our forests, and ones that want to be friends but are a little scared of us."/>
+                 </TextBlock>
+
+                <Image Grid.Column="1"  Source="/images/Reptile_2.jpg" Margin="10"/>
+                
+            </Grid>
+            
+            <!-- Booking Button -->
+            <Button Grid.Row="5" Name="btnBook" Width="100" Height="28" HorizontalAlignment="Center"
+                    Background="#156aac" BorderThickness="0" Content="Book" Foreground="White"
+                    FontSize="16" FontFamily="Arial" Cursor="Hand" Margin="10">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="5"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            
+        </Grid>
+    </ScrollViewer>
 </Page>

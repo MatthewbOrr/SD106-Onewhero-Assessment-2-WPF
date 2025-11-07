@@ -7,7 +7,7 @@
       Title="LoginPage"
       Background="Transparent">
 
-    <!-- Viewbox ensures content is centered inside the Frame -->
+    <!-- Viewbox helps content be centered inside the Frame -->
     <Viewbox Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid Width="250">
             <Grid.RowDefinitions>

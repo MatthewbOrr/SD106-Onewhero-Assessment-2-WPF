@@ -5,11 +5,102 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SD106_Onewhero_Assessment_2.View"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="650" d:DesignWidth="800"
       Title="EventsPage">
-
-    <Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Margin="10">
+        <Grid Width="680">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
         
+            <TextBlock Foreground="White" TextWrapping="Wrap" Grid.Row="0">
+            <Run Text="Upcoming Events" FontSize="24" Foreground="White" FontWeight="SemiBold"/>
+            <LineBreak/>
+            <LineBreak/>
+            20 November – Māori Flax Weaving Workshop
+            <LineBreak/>
+Time: 10:00 AM – 12:30 PM 
+            <LineBreak/>
+Location: Marae Hall 
+            <LineBreak/>
+Learn traditional weaving techniques using harakeke (flax) and create your own putiputi (flower). Led by local artists. Materials provided. Booking required.
+ <LineBreak></LineBreak>
+            <LineBreak/>
+23 November – Kiwi Twilight Encounter
+            <LineBreak/>
+Time: 6:30 PM – 8:00 PM 
+            <LineBreak/>
+Location: Kiwi House 
+            <LineBreak/>
+Join a guided night tour to observe kiwi birds in their natural setting. Includes conservation talk and quiet bush walk. Family-friendly.
+<LineBreak></LineBreak>
+           <LineBreak/>
+27 November – Heritage Music and Food Festival
+           <LineBreak/> 
+Time: 11:00 AM – 4:00 PM 
+         <LineBreak/>   
+Location: Onewhero Bay 
+         <LineBreak/>   
+Enjoy live kapa haka performances, acoustic music, and local food stalls. Cultural crafts and storytelling sessions available throughout the day.
+<LineBreak></LineBreak>
+           <LineBreak/>
+30 November – Guided Nature Trail Walk
+            <LineBreak/>
+Time: 9:30 AM – 11:00 AM 
+            
+Location: Main Trail Entrance 
+            <LineBreak/>
+Explore native bush and wetlands with a park ranger. Learn about local flora, fauna, and conservation efforts. Great for families and photographers.
+ <LineBreak></LineBreak>
+           <LineBreak/>
+            
+1 December – Museum Discovery Day
+            <LineBreak/>
+Time: 10:00 AM – 3:00 PM 
+            <LineBreak/>
+Location: Heritage Museum 
+            <LineBreak/>
+Special guided tours with behind-the-scenes access to rare artifacts and interactive exhibits. Includes kids’ scavenger hunt and history quiz.
+ <LineBreak></LineBreak>
+           <LineBreak/>
+            
+7 December – Sunrise Yoga by the Lake
+            <LineBreak/>
+Time: 7:00 AM – 8:00 AM 
+            <LineBreak/>
+Location: Lakeside Deck 
+            <LineBreak/>
+Start your day with a peaceful yoga session surrounded by nature. Mats provided. Herbal tea served afterward. Open to all levels.
+ <LineBreak></LineBreak>
+           <LineBreak/>
+            
+14 December – Holiday Craft and Storytelling Fair
+            <LineBreak/>
+Time: 10:00 AM – 2:00 PM 
+            <LineBreak/>
+Location: Visitor Pavilion 
+            <LineBreak/>
+Celebrate the season with handmade crafts, festive storytelling, and family activities. Includes ornament-making and a visit from a bush-dwelling Santa.
+
+            </TextBlock>
+
+        
+        
+        <!-- Booking Button -->
+    <Button Grid.Row="1" Name="btnBook" Width="100" Height="28" HorizontalAlignment="Center"
+Background="#156aac" BorderThickness="0" Content="Book" Foreground="White"
+FontSize="16" FontFamily="Arial" Cursor="Hand" Margin="10">
+        <Button.Template>
+            <ControlTemplate TargetType="Button">
+                <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="5"
+            Background="{TemplateBinding Background}">
+                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Border>
+            </ControlTemplate>
+        </Button.Template>
+    </Button>
     </Grid>
+    </ScrollViewer>
 </Page>

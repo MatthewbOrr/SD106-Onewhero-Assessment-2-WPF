@@ -44,7 +44,6 @@ namespace SD106_Onewhero_Assessment_2
             {
                 boundText = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BoundText"));
-                //OnPropertyChanged();
             }
         }
     }

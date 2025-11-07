@@ -36,12 +36,12 @@
             <!-- Horizontal Section: Image + Text -->
             <Grid Grid.Row="2" Margin="0,20,0,0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="350"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Image Grid.Column="0" Source="/images/Marae.jpg" Width="300" Margin="10"/>
-                <TextBlock Grid.Column="1" Width="330" Margin="10,0,0,0" Foreground="White" TextWrapping="Wrap" FontSize="14"
+                <Image Grid.Column="0" Source="/images/Marae.jpg" Margin="10"/>
+                <TextBlock Grid.Column="1" Width="330" Margin="10" Foreground="White" TextWrapping="Wrap" FontSize="14"
                            Text="See our cultural Marae grounds and learn the history of New Zealand and the surrounding events that have shaped the land around us today.
                            
                            See our exhibits of our native birds, age-old reptiles, and our very special flightless bird, the Kiwi. With a nocturnal enclosure you can get up close and personal with them. The only place on earth to see this special little bird."/>
@@ -63,7 +63,7 @@
             </Button>
 
             <!-- Bottom Images -->
-            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
                 <Image Source="/images/Kiwi.jpg" Height="200" Margin="10"/>
                 <Image Source="/images/hero_tuatara.jpg" Height="200" Margin="10"/>
             </StackPanel>
