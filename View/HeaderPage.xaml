@@ -20,37 +20,44 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
             <Image Source="/images/Logo_8.png" HorizontalAlignment="Left" Margin="15,2,0,2"/>
 
-        <TextBlock Name="title" Text="Onewhero Heritage Park" Foreground="White" FontSize="18"
-               FontFamily="Mongolian Baiti" Grid.Column="0" VerticalAlignment="Center" Cursor="Hand" Margin="20,0,0,0"/>
-
+            <Button Name="Title" Background="Transparent" BorderThickness="0" 
+                    Margin="20,0,0,0" Click="Title_Click">
+                <TextBlock  Text="Onewhero Heritage Park" Foreground="White" FontSize="18"
+       FontFamily="Mongolian Baiti" Grid.Column="0" VerticalAlignment="Center" Cursor="Hand" />
+            </Button>
         
 
-            <TextBlock Text="Attractions"
-           Name="Attractions"
-           Foreground="White"
-           FontSize="16"
-           FontWeight="Medium"
-           FontFamily="Arial"
-           Cursor="Hand"
-           Margin="80,5,0,0"/>
 
-            <TextBlock Text="Events"
-           Name="Events"
-           Foreground="White"
-           FontSize="16"
-           FontWeight="Medium"
-           FontFamily="Arial"
-           Cursor="Hand"
-           Margin="20,5,0,0"/>
+            <Button Name="Attractions" Background="Transparent" Margin="80,0,0,0"
+                    BorderThickness="0" Click="Attractions_Click">
+                <TextBlock Text="Attractions"
+                            Foreground="White"
+                            FontSize="16"
+                            FontWeight="Medium"
+                            FontFamily="Arial"
+                            Cursor="Hand"/>
+            </Button>
 
-            <TextBlock Name="AboutUs"
-           Text="About Us"
-           FontSize="16"
-           FontWeight="Medium"
-           Foreground="White"
-           FontFamily="Arial"
-           Cursor="Hand"
-           Margin="20,5,0,0"/>
+
+            <Button Name="Events" Background="Transparent" Margin="20,0,0,0"
+        BorderThickness="0" Click="Events_Click">
+                <TextBlock Text="Events"
+                Foreground="White"
+                FontSize="16"
+                FontWeight="Medium"
+                FontFamily="Arial"
+                Cursor="Hand"/>
+            </Button>
+
+            <Button Name="AboutUs" Background="Transparent" Margin="20,0,0,0"
+        BorderThickness="0" Click="AboutUs_Click">
+                <TextBlock Text="About Us"
+                Foreground="White"
+                FontSize="16"
+                FontWeight="Medium"
+                FontFamily="Arial"
+                Cursor="Hand"/>
+            </Button>
 
         </StackPanel>
 

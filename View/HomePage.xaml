@@ -1,148 +1,73 @@
 ﻿<Page x:Class="SD106_Onewhero_Assessment_2.View.HomePage"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SD106_Onewhero_Assessment_2.View"
-        mc:Ignorable="d"
-        Title="HomePage" Height="550" Width="800">
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:local="clr-namespace:SD106_Onewhero_Assessment_2.View"
+      mc:Ignorable="d"
+      Title="HomePage"
+      Background="Transparent">
 
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition/>
-                    <RowDefinition Height="50"/>
-                </Grid.RowDefinitions>
-                
-                <!-- Header -->
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="25"/>
-                        <ColumnDefinition Width="25"/>
-                        <ColumnDefinition Width="25"/>
-                    </Grid.ColumnDefinitions>
+    <!-- Scrollable content -->
+    <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
+        <!-- Centered Grid with fixed width -->
+        <Grid Width="700" HorizontalAlignment="Center" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- Title -->
+                <RowDefinition Height="Auto"/>
+                <!-- Main Image -->
+                <RowDefinition Height="Auto"/>
+                <!-- Horizontal Section -->
+                <RowDefinition Height="Auto"/>
+                <!-- Booking Button -->
+                <RowDefinition Height="Auto"/>
+                <!-- Bottom Images -->
+            </Grid.RowDefinitions>
 
-            <!--<Image Source="/images/Logo_8.png" HorizontalAlignment="Left" Margin="15,2,0,2"/>
+            <!-- Page Title -->
+            <TextBlock Grid.Row="0" Text="Come visit the Heritage site of Onewhero Bay!" 
+                       FontSize="24" FontWeight="SemiBold" Foreground="White" 
+                       HorizontalAlignment="Center" Margin="0,0,0,20"/>
 
-                    <TextBlock Text="Onewhero Heritage HomePage" Foreground="White" FontSize="18"
-                               FontFamily="Mongolian Baiti" Grid.Column="0" VerticalAlignment="Center" Margin="70,0,0,0"/>
-                    
-                    <Button Name="btnMinimize" Background="#28aeed" BorderThickness="0" Content="-" Foreground="White"
-                            FontSize="16" FontFamily="Mongolian Baiti" Cursor="Hand" Grid.Column="1" Click="btnMinimize_Click">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="18"  Height="18"
-                                        CornerRadius="2"
-                                        Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+            <!-- Main Image -->
+            <Image Grid.Row="1" Source="/images/Bay.jpg" Width="680" HorizontalAlignment="Center"/>
 
-                    <Button Name="btnClose" Background="#0D8756" BorderThickness="0" Content="x" Foreground="White"
-                            FontSize="12" FontFamily="Arial" Cursor="Hand" Grid.Column="2" Click="btnClose_Click">
+            <!-- Horizontal Section: Image + Text -->
+            <Grid Grid.Row="2" Margin="0,20,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="18"  Height="18"
-                                        CornerRadius="2"
-                                        Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>-->
-                </Grid>
-                
-                <!-- Main Content -->
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="60"/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="60"/>
-                    </Grid.ColumnDefinitions>
-                    <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Hidden">
+                <Image Grid.Column="0" Source="/images/Marae.jpg" Width="300" Margin="10"/>
+                <TextBlock Grid.Column="1" Width="330" Margin="10,0,0,0" Foreground="White" TextWrapping="Wrap" FontSize="14"
+                           Text="See our cultural Marae grounds and learn the history of New Zealand and the surrounding events that have shaped the land around us today.
+                           
+                           See our exhibits of our native birds, age-old reptiles, and our very special flightless bird, the Kiwi. With a nocturnal enclosure you can get up close and personal with them. The only place on earth to see this special little bird."/>
 
-                    <StackPanel Grid.Column="1">
-                        <StackPanel.Background>
-                            <SolidColorBrush Color="White" Opacity=".1"/>
-                        </StackPanel.Background>
-                        <Image Source="/images/Bay.jpg" Margin="10"/>
-
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/images/Bay.jpg" Width="300" Margin="10"/>
-                                <TextBlock Margin="10,20,0,0" Foreground="White" Width="330" TextWrapping="Wrap" FontSize="14" Text="Come visit the Heritage site of Onewhero Bay!
-                                           See our cultural Marae grounds  and learn the history of New Zealand and the surrounding events that have shaped the land around us today.
-                                           See our exhibits of our native birds, age old reptiles and our very special flightless bird, the Kiwi. With a nocturnal enclosure you can get up close and personal with them. The only place on earth to see this special little bird."/>
-                            </StackPanel>
-                    </StackPanel>
-
-
-
-
-
-                    </ScrollViewer>
-                </Grid>
-
-                <!-- Footer -->
-                <Grid Grid.Row="2">
-                    <Image Source="/images/Logo_8.png" HorizontalAlignment="Left" Margin="15,5,5,5"/>
-                    
-                    
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-
-                        <TextBlock Text="About Us"
-                                   Name="AboutUs"
-                                   Foreground="DarkGray"
-                                   FontSize="12"
-                                   FontWeight="Medium"
-                                   FontFamily="Arial"
-                                   Cursor="Hand"
-                                   Margin="10,0,0,0"/>
-                        
-                        <TextBlock Text="Contact Us"
-                                   Name="ContactUs"
-                                   Foreground="DarkGray"
-                                   FontSize="12"
-                                   FontWeight="Medium"
-                                   FontFamily="Arial"
-                                   Cursor="Hand"
-                                   Margin="10,0,0,0"/>
-
-                        <TextBlock Name="FAQ"
-                                   Text="FAQ"
-                                   FontSize="12"
-                                   FontWeight="Medium"
-                                   Foreground="DarkGray"
-                                   FontFamily="Arial"
-                                   Cursor="Hand"
-                                   Margin="10,0,0,0"/>
-                        
-                        <TextBlock Name="PrivacyP"
-                                   Text="Privacy Policy"
-                                   FontSize="12"
-                                   FontWeight="Medium"
-                                   Foreground="DarkGray"
-                                   FontFamily="Arial"
-                                   Cursor="Hand"
-                                   Margin="10,0,0,0"/>
-                        
-                        <TextBlock Name="TAC"
-                                   Text="Terms and Conditions"
-                                   FontSize="12"
-                                   FontWeight="Medium"
-                                   Foreground="DarkGray"
-                                   FontFamily="Arial"
-                                   Cursor="Hand"
-                                   Margin="10,0,0,0"/>
-                    </StackPanel>
-
-
-
-                </Grid>
-                
             </Grid>
-        
+
+            <!-- Booking Button -->
+            <Button Grid.Row="3" Name="btnBook" Width="100" Height="28" HorizontalAlignment="Center"
+                    Background="#156aac" BorderThickness="0" Content="Book" Foreground="White"
+                    FontSize="16" FontFamily="Arial" Cursor="Hand" Margin="10">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="5"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <!-- Bottom Images -->
+            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Image Source="/images/Kiwi.jpg" Height="200" Margin="10"/>
+                <Image Source="/images/hero_tuatara.jpg" Height="200" Margin="10"/>
+            </StackPanel>
+
+        </Grid>
+    </ScrollViewer>
 </Page>

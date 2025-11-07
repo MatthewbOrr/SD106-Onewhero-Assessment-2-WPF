@@ -8,31 +8,28 @@
       d:DesignHeight="1450" d:DesignWidth="800"
       Title="AboutUsPage">
 
-    <Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+    <Grid >
+        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" >
         <StackPanel>
             <!-- About us-->
-            <TextBlock FontSize="24" FontWeight="SemiBold" Text="About Us" Foreground="White" Margin="10"/>
-            <TextBlock TextWrapping="Wrap" Foreground="White" Margin="10" Text="Onewhero Bay Heritage Park is a premier cultural and ecological destination located in the stunning Northland region of New Zealand. Our park celebrates the rich heritage, biodiversity, and community spirit of Aotearoa through immersive experiences and educational encounters.
-Visitors can explore our heritage museum, encounter native birds and reptiles, and experience the magic of our nocturnal kiwi house. The park also features a traditional marae, offering an authentic connection to Māori culture and the stories that have shaped our region.
-At Onewhero Bay Heritage Park, our mission is to inspire appreciation for New Zealand’s natural and cultural heritage. Whether you’re a local visitor, a school group, or an international traveller, we invite you to discover, learn, and connect with the unique beauty of our land and its people.">
-                
-            </TextBlock>
-            <!-- FAQ -->
-            <TextBlock FontSize="24" FontWeight="SemiBold" Text="Frequently Asked Questions" Foreground="White" Margin="10"/>
-            <TextBlock TextWrapping="Wrap" Foreground="White" Margin="10,0,10,10">                 <Run Text="1. Where is Onewhero Bay Heritage Park located? We are situated in the scenic Northland region of New Zealand. Detailed directions and transport options can be found on our “Visit Us” page."/>
+                <TextBlock FontSize="24" FontWeight="SemiBold" Text="About Us" Foreground="White" Margin="10" Width="680"/>
+                <TextBlock TextWrapping="Wrap" Foreground="White" Width="680"
+                           Text="Onewhero Bay Heritage Park is a premier cultural and ecological destination located in the stunning Northland region of New Zealand. Our park celebrates the rich heritage, biodiversity, and community spirit of Aotearoa through immersive experiences and educational encounters. Visitors can explore our heritage museum, encounter native birds and reptiles, and experience the magic of our nocturnal kiwi house. The park also features a traditional marae, offering an authentic connection to Māori culture and the stories that have shaped our region. At Onewhero Bay Heritage Park, our mission is to inspire appreciation for New Zealand’s natural and cultural heritage. Whether you’re a local visitor, a school group, or an international traveller, we invite you to discover, learn, and connect with the unique beauty of our land and its people."/>
+                <!-- FAQ -->
+                <TextBlock FontSize="24" FontWeight="SemiBold" Text="Frequently Asked Questions" Foreground="White" Width="680" Margin="10"/>
+                <TextBlock TextWrapping="Wrap" Foreground="White" Width="680" Margin="10,0,10,0">                 <Run Text="1. Where is Onewhero Bay Heritage Park located? We are situated in the scenic Northland region of New Zealand. Detailed directions and transport options can be found on our “Visit Us” page."/>
                 <Run Text=" "/>                                  <Run Text="2. How can I book tickets or register for events? You can register and book online through our Visitor Portal. Simply create an account, select your preferred date or event, and follow the secure payment process."/>                 <Run Text=" "/> <Run Text="3. What attractions are included in the park?  Our park features a museum, a nocturnal kiwi house, native bird and reptile exhibits, and a traditional marae. We also host seasonal exhibitions, cultural events, and guided tours."/>
                 <Run Text=" "/>                  <Run Text="4. Is the park family-friendly?  Absolutely! Onewhero Bay Heritage Park is designed for visitors of all ages. We offer family passes, child-friendly exhibits, and picnic areas."/>
 <Run Text=" "/>                  <Run Text="5. How do I receive updates about upcoming events?  By registering on our website, you can opt in to receive personalised updates, event recommendations, and promotions tailored to your interests."/>
 <Run Text=" "/>                  <Run Text="6. How is visitor data used?  We collect limited personal information to enhance your experience, improve park services, and share relevant event information. Please review our Privacy Policy below for full details."/>             </TextBlock>
             
             <!-- Contact us-->
-            <TextBlock FontSize="24" FontWeight="SemiBold" Text="Contact Us" Foreground="White" Margin="10"/>
-
-            <StackPanel>
+                <TextBlock FontSize="24" FontWeight="SemiBold" Text="Contact Us" Foreground="White" Margin="10" Width="680" />
+                <StackPanel>
                 
             </StackPanel>
             
         </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

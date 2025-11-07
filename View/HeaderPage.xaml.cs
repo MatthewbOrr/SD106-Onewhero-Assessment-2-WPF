@@ -40,5 +40,31 @@ namespace SD106_Onewhero_Assessment_2.View
         {
             InitializeComponent();
         }
+
+        private void Attractions_Click(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = (MainWindow)Application.Current.MainWindow;
+
+            mainWindow.MainFrame.Navigate(new AttractionsPage());
+        }
+        private void Events_Click(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = (MainWindow)Application.Current.MainWindow;
+
+            mainWindow.MainFrame.Navigate(new EventsPage());
+        }
+        private void AboutUs_Click(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = (MainWindow)Application.Current.MainWindow;
+
+            mainWindow.MainFrame.Navigate(new AboutUsPage());
+        }
+
+        private void Title_Click(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = (MainWindow)Application.Current.MainWindow;
+
+            mainWindow.MainFrame.Navigate(new HomePage());
+        }
     }
 }
