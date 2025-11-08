@@ -24,5 +24,19 @@ namespace SD106_Onewhero_Assessment_2.View
         {
             InitializeComponent();
         }
+        private void AboutUs_Click(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = (MainWindow)Application.Current.MainWindow;
+
+            mainWindow.MainFrame.Navigate(new AboutUsPage());
+        }
+
+        private void PrivacyP_Click(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = (MainWindow)Application.Current.MainWindow;
+
+            mainWindow.MainFrame.Navigate(new PrivacyPolicyPage());
+        }
+
     }
 }

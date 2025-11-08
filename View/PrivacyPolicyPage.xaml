@@ -1,0 +1,43 @@
+﻿<Page x:Class="SD106_Onewhero_Assessment_2.View.PrivacyPolicyPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SD106_Onewhero_Assessment_2.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="1450" d:DesignWidth="800"
+      Title="PrivacyPolicyPage">
+
+    <Grid >
+        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" >
+        <StackPanel>
+            <!-- Privacy Policy -->
+                <TextBlock FontSize="24" FontWeight="SemiBold" Text="Privacy Policy" Foreground="White" Margin="10" Width="680"/>
+                <TextBlock TextWrapping="Wrap" Foreground="White" Width="680" Margin="10,0,10,0">                     <TextBlock TextWrapping="Wrap" Foreground="White" Width="680" Text="Onewhero Bay Heritage Park respects your privacy and is committed to protecting your personal information. This policy explains how we collect, use, and safeguard your data."/>                                       <Run Text="1. Information We Collect  We may collect the following types of information: - Personal Details: Name, email address, phone number, and visitor preferences. - Booking Information: Event registrations, ticket purchases, and attendance history."/>
+                    <LineBreak/>
+                    <Run Text="- Usage Data: Interactions with our website, pages visited, and preferences for targeted communications."/>
+                <Run Text=" "/>                                  <Run Text="2. How We Use Your Information   Your information is used to: - Process registrations and manage bookings. - Improve visitor experiences and park operations. - Send personalised event recommendations and updates (only with your consent)."/>                 <Run Text=" "/>                 <Run Text="3. Data Sharing   We do not sell or rent personal data. Information may be shared only with: - Trusted service providers assisting with bookings, payments, or communications. 
+     - Authorities if required by law or to ensure visitor safety."/>
+                <Run Text=" "/>                                  <Run Text="4. Data Security - We implement technical and organisational measures to protect your information against unauthorised access, alteration, or disclosure."/>                  <Run Text="5. Your Rights   You have the right to: - Access and update your personal information."/>
+      <LineBreak/>              
+<Run Text="- Withdraw consent for marketing communications at any time."/>
+                    <LineBreak/> 
+<Run Text="- Request deletion of your personal data, subject to legal retention requirements."/>                  <Run Text="6. Cookies - Our website uses cookies to enhance user experience and analyse site traffic. You may disable cookies in your browser settings, though some features may not function correctly."/>             </TextBlock>
+            
+                <!-- Terms and Conditions -->
+                <TextBlock FontSize="24" FontWeight="SemiBold" Text="Terms and Conditions" Foreground="White" Width="680" Margin="10"/>
+                <TextBlock TextWrapping="Wrap" Foreground="White" Width="680" Margin="10,0,10,0">                     <TextBlock TextWrapping="Wrap" Foreground="White" Width="680" Text="Welcome to Onewhero Bay Heritage Park. By accessing or using our website, visitor registration system, or related services, you agree to comply with and be bound by the following terms and conditions."/>                                       <Run Text="1. General Use - Access to the park’s website and systems is provided for personal, non-commercial purposes. - You agree to use the website lawfully and not to engage in any activity that disrupts or damages our services."/>
+                <Run Text=" "/>                                  <Run Text="2. Registration and Booking - When registering or booking an event, you agree to provide accurate and up-to-date information. - Bookings are subject to availability and confirmation. Cancellations or changes may incur fees, as outlined during the booking process. - Onewhero Bay Heritage Park reserves the right to modify or cancel events due to unforeseen circumstances (e.g., weather conditions or safety concerns). "/>                 <Run Text=" "/>                 <Run Text="3. Intellectual Property - All content, including images, text, logos, and software, remains the property of Onewhero Bay Heritage Park or its licensors. 
+     - No material may be reproduced or distributed without prior written consent."/>
+                <Run Text=" "/>                                  <Run Text="4. Liability - Visitors enter the park and participate in events at their own risk."/>
+<LineBreak/>
+<Run Text="- Onewhero Bay Heritage Park will not be held responsible for personal injury, loss, or damage to personal property unless caused by proven negligence."/>
+<Run Text=" "/>                  <Run Text="5. Data and Privacy - By using our services, you consent to the collection and use of your data in accordance with our Privacy Policy."/>
+      <LineBreak/>              
+<Run Text="- You are responsible for maintaining the confidentiality of your login credentials."/>
+<Run Text=" "/>                  <Run Text="6. Amendments - These terms may be updated periodically. Continued use of our website constitutes acceptance of the revised terms."/>             </TextBlock>
+            
+        </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

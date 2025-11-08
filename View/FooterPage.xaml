@@ -14,52 +14,58 @@
         <Image Source="/images/Logo_8.png" HorizontalAlignment="Left" Margin="15,5,5,5"/>
 
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0">
 
-            <TextBlock Text="About Us"
-                   Name="AboutUs"
-                   Foreground="DarkGray"
-                   FontSize="12"
-                   FontWeight="Medium"
-                   FontFamily="Arial"
-                   Cursor="Hand"
-                   Margin="10,0,0,0"/>
+            <Button Name="AboutUs" Background="Transparent" Margin="10,0,0,0"
+                    BorderThickness="0" Click="AboutUs_Click">
+                <TextBlock Text="About Us"
+                    Foreground="DarkGray"
+                    FontSize="12"
+                    FontWeight="Medium"
+                    FontFamily="Arial"
+                    Cursor="Hand"/>
+            </Button>
 
-            <TextBlock Text="Contact Us"
-                   Name="ContactUs"
-                   Foreground="DarkGray"
-                   FontSize="12"
-                   FontWeight="Medium"
-                   FontFamily="Arial"
-                   Cursor="Hand"
-                   Margin="10,0,0,0"/>
+            <Button Name="ContactUs" Background="Transparent" Margin="10,0,0,0"
+                    BorderThickness="0" Click="AboutUs_Click">
+                <TextBlock Text="Contact Us"
+                    Foreground="DarkGray"
+                    FontSize="12"
+                    FontWeight="Medium"
+                    FontFamily="Arial"
+                    Cursor="Hand"/> 
+            </Button>
+            
+            <Button Name="FAQ" Background="Transparent" Margin="10,0,0,0"
+                    BorderThickness="0" Click="AboutUs_Click">
+                <TextBlock Text="FAQ"
+                    Foreground="DarkGray"
+                    FontSize="12"
+                    FontWeight="Medium"
+                    FontFamily="Arial"
+                    Cursor="Hand"/>
+            </Button>
 
-            <TextBlock Name="FAQ"
-                   Text="FAQ"
-                   FontSize="12"
-                   FontWeight="Medium"
-                   Foreground="DarkGray"
-                   FontFamily="Arial"
-                   Cursor="Hand"
-                   Margin="10,0,0,0"/>
+            <Button Name="PrivacyP" Background="Transparent" Margin="10,0,0,0"
+                    BorderThickness="0" Click="PrivacyP_Click">
+                <TextBlock Text="Privacy Policy"
+                    Foreground="DarkGray"
+                    FontSize="12"
+                    FontWeight="Medium"
+                    FontFamily="Arial"
+                    Cursor="Hand"/>
+            </Button>
 
-            <TextBlock Name="PrivacyP"
-                   Text="Privacy Policy"
-                   FontSize="12"
-                   FontWeight="Medium"
-                   Foreground="DarkGray"
-                   FontFamily="Arial"
-                   Cursor="Hand"
-                   Margin="10,0,0,0"/>
-
-            <TextBlock Name="TAC"
-                   Text="Terms and Conditions"
-                   FontSize="12"
-                   FontWeight="Medium"
-                   Foreground="DarkGray"
-                   FontFamily="Arial"
-                   Cursor="Hand"
-                   Margin="10,0,0,0"/>
+            <Button Name="TaC" Background="Transparent" Margin="10,0,0,0"
+                    BorderThickness="0" Click="PrivacyP_Click">
+                <TextBlock Text="Terms and Conditions"
+                    Foreground="DarkGray"
+                    FontSize="12"
+                    FontWeight="Medium"
+                    FontFamily="Arial"
+                    Cursor="Hand"/>
+            </Button>
+            
         </StackPanel>
 
     </Grid>
