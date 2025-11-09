@@ -12,17 +12,45 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SD106_Onewhero_Assessment_2.Helpers;
+using MySql.Data.MySqlClient;
 
-namespace SD106_Onewhero_Assessment_2.View
+namespace SD106_Onewhero_Assessment_2.Model
 {
-    /// <summary>
-    /// Interaction logic for Page1.xaml
-    /// </summary>
-    public partial class Page1 : Page
+
+    public partial class AdminDashboardPage : Page
     {
-        public Page1()
+        public User currentUser;
+
+        public AdminDashboardPage(User user)
         {
+            currentUser = user;
             InitializeComponent();
+            LoadEventList();
+        }
+        private void LoadEventList()
+        {
+            using var conn = DBHelper.GetConnection();
+        conn.Open();
+            
+            var cmd = new MySqlCommand("SELECT event_id, title, date, location, capacity FROM Event WHERE admin_id : @aid", conn);
+        cmd.Parameters.AddWithValue("@aid", currentUser.UserId);
+
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+            string title = reader.GetString("title");
+        string date = reader.GetDateTime("date").ToString("yyyy-MM-dd HH:mm");
+        string location = reader.GetString("location");
+        int capacity = reader.GetInt32("capacity");
+        var item = new ListBoxItem
+        {
+            Content = $"{title} - {date} @ {location} (Capacity: {capacity}",
+            Foreground = System.Windows.Media.Brushes.DarkBlue,
+        };
+        lstEvents.Items.Add(item);
+        }
+
         }
     }
 }
