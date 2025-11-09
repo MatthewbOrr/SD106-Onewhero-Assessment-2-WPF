@@ -30,16 +30,16 @@
                 <!-- Registration Form -->
                 <StackPanel Grid.Column="0" Margin="0,0,20,0">
                     <TextBlock Text="Full Name" Foreground="DarkGray" FontSize="12" FontWeight="Medium"/>
-                    <TextBox Name="txtFullName" Width="200" Height="28" Background="Transparent" Foreground="White" BorderBrush="DarkGray" BorderThickness="0,0,0,1" Margin="0,5,0,10" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="txtName" Width="200" Height="28" Background="Transparent" Foreground="White" BorderBrush="DarkGray" BorderThickness="0,0,0,1" Margin="0,5,0,10" HorizontalAlignment="Left"/>
 
                     <TextBlock Text="Mobile Number" Foreground="DarkGray" FontSize="12" FontWeight="Medium"/>
-                    <TextBox Name="txtNumber" Width="200" Height="28" Background="Transparent" Foreground="White" BorderBrush="DarkGray" BorderThickness="0,0,0,1" Margin="0,5,0,10" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="txtMobile" Width="200" Height="28" Background="Transparent" Foreground="White" BorderBrush="DarkGray" BorderThickness="0,0,0,1" Margin="0,5,0,10" HorizontalAlignment="Left"/>
 
                     <TextBlock Text="Email" Foreground="DarkGray" FontSize="12" FontWeight="Medium"/>
-                    <TextBox Name="txtEmail" Width="200" Height="28" Background="Transparent" Foreground="White" BorderBrush="DarkGray" BorderThickness="0,0,0,1" Margin="0,5,0,10" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="txtEmail" Width="200" Height="28" Background="Transparent" Foreground="White" BorderBrush="DarkGray" BorderThickness="0,0,0,1" Margin="0,5,0,10" HorizontalAlignment="Left"/>
 
                     <TextBlock Text="Password" Foreground="DarkGray" FontSize="12" FontWeight="Medium"/>
-                    <PasswordBox Name="txtPass" Width="200" Height="28" Background="Transparent" Foreground="White" BorderBrush="DarkGray" BorderThickness="0,0,0,1" Margin="0,5,0,15" HorizontalAlignment="Left"/>
+                    <PasswordBox x:Name="txtPassword" Width="200" Height="28" Background="Transparent" Foreground="White" BorderBrush="DarkGray" BorderThickness="0,0,0,1" Margin="0,5,0,15" HorizontalAlignment="Left"/>
 
                     <Button Name="btnRegister" Width="100" Height="28" HorizontalAlignment="Center" Background="#156aac" BorderThickness="0" Content="Register" Foreground="White" FontSize="12" Cursor="Hand" Margin="0,0,0,10">
                         <Button.Template>
@@ -60,7 +60,7 @@
                 </StackPanel>
 
                 <!-- Areas of Interest -->
-                <StackPanel Grid.Column="1">
+                <StackPanel Grid.Column="1" x:Name="interestPanel">
                     <TextBlock Text="Areas of interest:" Foreground="DarkGray" Margin="0,0,0,10"/>
                     <CheckBox Margin="0,10,0,0">
                         <TextBlock Text="Kiwi Twilight Enclosure" Foreground="White"/>

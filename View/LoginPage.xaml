@@ -28,7 +28,7 @@
                        FontFamily="Arial" HorizontalAlignment="Left" Margin="0,0,0,5"/>
 
             <!-- Username TextBox -->
-            <TextBox Grid.Row="2" Name="txtUser" Width="200" Height="28" HorizontalAlignment="Left"
+            <TextBox Grid.Row="2" x:Name="txtEmail" Width="200" Height="28" HorizontalAlignment="Left"
                      FontSize="13" FontWeight="Medium" FontFamily="Arial" Background="Transparent"
                      Foreground="White" CaretBrush="LightGray" BorderBrush="DarkGray" BorderThickness="0,0,0,1"
                      VerticalContentAlignment="Center" Margin="0,0,0,15"/>
@@ -38,7 +38,7 @@
                        FontFamily="Arial" HorizontalAlignment="Left" Margin="0,0,0,5"/>
 
             <!-- PasswordBox -->
-            <PasswordBox Grid.Row="4" Name="txtPass" Width="200" Height="28" HorizontalAlignment="Left"
+            <PasswordBox Grid.Row="4" x:Name="txtPassword" Width="200" Height="28" HorizontalAlignment="Left"
                          FontSize="13" FontWeight="Medium" FontFamily="Arial" Background="Transparent"
                          Foreground="White" CaretBrush="LightGray" BorderBrush="DarkGray" BorderThickness="0,0,0,1"
                          VerticalContentAlignment="Center" Margin="0,0,0,15"/>
