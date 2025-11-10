@@ -16,10 +16,11 @@ using MySql.Data.MySqlClient;
 using BCrypt.Net;
 using SD106_Onewhero_Assessment_2.Model;
 using System.Security.Cryptography.X509Certificates;
+using SD106_Onewhero_Assessment_2.View;
 
 
 
-namespace SD106_Onewhero_Assessment_2.View
+namespace SD106_Onewhero_Assessment_2.Model
 {
 
     public partial class LoginPage : Page

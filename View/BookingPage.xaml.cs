@@ -13,11 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SD106_Onewhero_Assessment_2.View
+namespace SD106_Onewhero_Assessment_2.Model
 {
-    /// <summary>
-    /// Interaction logic for BookingPage.xaml
-    /// </summary>
+
     public partial class BookingPage : Page
     {
         public BookingPage()

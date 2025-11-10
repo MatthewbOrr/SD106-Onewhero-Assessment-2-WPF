@@ -29,8 +29,8 @@ namespace SD106_Onewhero_Assessment_2
         {
             DataContext = this;
             InitializeComponent();
-            MainFrame.Navigate(new View.LoginPage());
-            HeaderFrame.Navigate(new View.LoginHeaderPage());
+            MainFrame.Navigate(new Model.LoginPage());
+            HeaderFrame.Navigate(new Model.LoginHeaderPage());
 
         }
         private string boundText;

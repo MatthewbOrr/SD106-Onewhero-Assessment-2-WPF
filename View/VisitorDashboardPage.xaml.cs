@@ -12,15 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SD106_Onewhero_Assessment_2.Helpers;
+using SD106_Onewhero_Assessment_2.Model;
 
 namespace SD106_Onewhero_Assessment_2.View
 {
-    /// <summary>
-    /// Interaction logic for Page1.xaml
-    /// </summary>
-    public partial class Page1 : Page
+
+    public partial class VisitorDashboardPage : Page
     {
-        public Page1()
+
+        public VisitorDashboardPage()
+        {
+            InitializeComponent();
+        }
+        public VisitorDashboardPage(Model.User user)
         {
             InitializeComponent();
         }

@@ -15,7 +15,7 @@ using SD106_Onewhero_Assessment_2.Helpers;
 using MySql.Data.MySqlClient;
 using BCrypt.Net;
 
-namespace SD106_Onewhero_Assessment_2.View
+namespace SD106_Onewhero_Assessment_2.Model
 {
 
     public partial class RegisterPage : Page

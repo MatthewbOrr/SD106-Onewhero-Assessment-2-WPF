@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SD106_Onewhero_Assessment_2.View.UserControls
+namespace SD106_Onewhero_Assessment_2.Model.UserControls
 {
     public partial class UserControl1 : UserControl
     {
