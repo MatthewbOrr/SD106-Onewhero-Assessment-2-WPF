@@ -9,9 +9,22 @@
       Title="Page1">
 
     <Grid>
+        
         <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Width="680">
-            <Expander Height="100" Header="Expander" Width="100">
-                <Grid Background="#FFE5E5E5"/>
+            <Expander Height="auto" Header="Māori Flax Weaving Workshop" Foreground="White" Width="680">
+                <Grid Background="#FFE5E5E5">
+                    <TextBlock Text="hey" Foreground="Black" TextWrapping="Wrap">
+            20 November – Māori Flax Weaving Workshop
+            <LineBreak/>
+Time: 10:00 AM – 12:30 PM 
+            <LineBreak/>
+Location: Marae Hall 
+            <LineBreak/>
+Learn traditional weaving techniques using harakeke (flax) and create your own putiputi (flower). Led by local artists. Materials provided. Booking required.
+ <LineBreak></LineBreak>
+            <LineBreak/>
+                    </TextBlock>
+                </Grid>
             </Expander>
 
 
