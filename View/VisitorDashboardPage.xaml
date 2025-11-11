@@ -17,6 +17,7 @@
             <RowDefinition Height="*"/> <!-- Upcoming Events -->
         </Grid.RowDefinitions>
         
+
         <!-- User Profile -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,20">
         <TextBlock Text="Welcome, [UserName]" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,10,0"/>
@@ -50,9 +51,10 @@
         </Grid>
 
         <!-- Upcoming Events -->
-        <TextBlock Grid.Row="2" Text="Upcoming Booked events" Foreground="White" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
-        <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
-            <StackPanel x:Name="EventListPanel" />
-        </ScrollViewer>
+        <TextBlock Grid.Row="2" Text="Upcoming Booked events" Foreground="White" FontSize="18" FontWeight="Bold" Margin="0,0,0,10" VerticalAlignment="center"/>
+        <Button Grid.Row="2" Content="Cancel Booking" Width="100" Height="30" Background="#156AAC" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="center" Cursor="Hand" Click="CancelBooking_Click" Margin="10"/>
+        <ScrollViewer Grid.Row="3" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
+                <StackPanel x:Name="EventListPanel"/>
+            </ScrollViewer>
     </Grid>
 </Page>
