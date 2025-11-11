@@ -58,6 +58,13 @@
                                 FontSize="14"
                                 FontWeight="Normal"
                                Margin="5"/>
+                    <TextBlock Grid.Row="2"
+                                Grid.Column="0"
+                                Text="Age: "
+                                Foreground="White"
+                                FontSize="14"
+                                FontWeight="Normal"
+                               Margin="5"/>
                 </StackPanel>
 
                 <TextBlock Grid.Row="1"
