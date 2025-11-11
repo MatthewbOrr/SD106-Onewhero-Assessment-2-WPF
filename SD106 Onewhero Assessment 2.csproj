@@ -20,6 +20,7 @@
     <None Remove="images\Marae_2.jpg" />
     <None Remove="images\Native Birds.jpg" />
     <None Remove="images\onewhero-bay.jpeg" />
+    <None Remove="images\ProfilePicture.png" />
     <None Remove="images\Reptile_2.jpg" />
   </ItemGroup>
 
@@ -60,6 +61,9 @@
     </Resource>
     <Resource Include="images\onewhero-bay.jpeg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\ProfilePicture.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="images\Reptile_2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
