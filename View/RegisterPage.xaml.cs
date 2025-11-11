@@ -34,7 +34,20 @@ namespace SD106_Onewhero_Assessment_2.Model
         {
             string name = txtName.Text;
             string email = txtEmail.Text;
+            string phone = txtPhone.Text.Trim();
             string password = txtPassword.Password;
+
+            if (string.IsNullOrWhiteSpace(name) ||
+                string.IsNullOrWhiteSpace(email) ||
+                string.IsNullOrWhiteSpace(phone) ||
+                string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("Please fill in all required fields.");
+                return;
+            }
+
+
+
             string hashed = BCrypt.Net.BCrypt.HashPassword(password);
 
             using var conn = DBHelper.GetConnection();
@@ -43,16 +56,18 @@ namespace SD106_Onewhero_Assessment_2.Model
 
             try
             {
-                var cmdUser = new MySqlCommand("INSERT INTO User (name, email, password_hash, role) VALUES (@n, @e, @ph, 'visitor')", conn, tran);
+                var cmdUser = new MySqlCommand("INSERT INTO User (name, email, Phone, password_hash, role) VALUES (@n, @e, @p, @ph, 'visitor')", conn, tran);
                 cmdUser.Parameters.AddWithValue("@n", name);
                 cmdUser.Parameters.AddWithValue("@e", email);
+                cmdUser.Parameters.AddWithValue("@p", phone);
                 cmdUser.Parameters.AddWithValue("@ph", hashed);
                 cmdUser.ExecuteNonQuery();
 
                 long userId = cmdUser.LastInsertedId;
 
-                var cmdVisitor = new MySqlCommand("INSERT INTO Visitor (user_id) VALUES (@uid)", conn, tran);
+                var cmdVisitor = new MySqlCommand(@"INSERT INTO Visitor (visitor_id, registered_date) VALUES (@uid, @reg)", conn, tran);
                 cmdVisitor.Parameters.AddWithValue("@uid", userId);
+                cmdVisitor.Parameters.AddWithValue("@reg", DateTime.Now.Date);
                 cmdVisitor.ExecuteNonQuery();
 
                 foreach (CheckBox cb in interestPanel.Children.OfType<CheckBox>())

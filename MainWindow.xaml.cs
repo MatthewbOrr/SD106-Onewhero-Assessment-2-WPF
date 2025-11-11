@@ -1,7 +1,9 @@
-﻿using System.Collections.Specialized;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Navigation;
+using System.Windows.Controls;
+using SD106_Onewhero_Assessment_2.Model;
 
 namespace SD106_Onewhero_Assessment_2
 {
@@ -14,17 +16,16 @@ namespace SD106_Onewhero_Assessment_2
                 DragMove();
         }
 
-        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        private void BtnMinimize_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }
 
-        private void btnClose_Click(object sender, RoutedEventArgs e)
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
 
-        bool running  = false;
         public MainWindow()
         {
             DataContext = this;
@@ -33,17 +34,17 @@ namespace SD106_Onewhero_Assessment_2
             HeaderFrame.Navigate(new Model.LoginHeaderPage());
 
         }
-        private string boundText;
+        private string boundText = string.Empty;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
         public string BoundText
         {
-            get { return boundText; }
+            get => boundText;
             set
             {
                 boundText = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BoundText"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(BoundText)));
             }
         }
     }

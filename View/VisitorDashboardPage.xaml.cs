@@ -72,7 +72,7 @@ namespace SD106_Onewhero_Assessment_2.View
         private void RenderBookings(List<BookingItem> bookings)
         {
             EventListPanel.Children.Clear();
-
+            
             foreach (var booking in bookings)
             {
                 Expander expander = new Expander

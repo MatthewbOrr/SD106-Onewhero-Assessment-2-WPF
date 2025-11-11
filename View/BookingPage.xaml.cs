@@ -28,6 +28,7 @@ namespace SD106_Onewhero_Assessment_2.View
             InitializeComponent();
             visitorId = loggedInVisitorId;
         }
+
         private void btnBook_Click(object sender, RoutedEventArgs e)
         {
             var (eventId, tickets) = GetSelectedEventIdAndTickets();

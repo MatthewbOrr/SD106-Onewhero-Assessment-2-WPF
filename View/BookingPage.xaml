@@ -9,7 +9,10 @@
       Title="BookingPage">
 
     <Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+        
+        
+        
+        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Width="680">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>

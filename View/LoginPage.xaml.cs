@@ -76,7 +76,7 @@ namespace SD106_Onewhero_Assessment_2.Model
             }
             else
             {
-                mainWindow.MainFrame.Navigate(new VisitorDashboardPage(user));
+                mainWindow.MainFrame.Navigate(new VisitorDashboardPage(user.UserId));
                 mainWindow.MainFrame.Navigate(new HomePage());
                 mainWindow.HeaderFrame.Navigate(new HeaderPage());
             

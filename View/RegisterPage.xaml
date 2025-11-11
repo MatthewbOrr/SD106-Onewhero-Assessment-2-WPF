@@ -33,7 +33,7 @@
                     <TextBox x:Name="txtName" Width="200" Height="28" Background="Transparent" Foreground="White" BorderBrush="DarkGray" BorderThickness="0,0,0,1" Margin="0,5,0,10" HorizontalAlignment="Left"/>
 
                     <TextBlock Text="Mobile Number" Foreground="DarkGray" FontSize="12" FontWeight="Medium"/>
-                    <TextBox x:Name="txtMobile" Width="200" Height="28" Background="Transparent" Foreground="White" BorderBrush="DarkGray" BorderThickness="0,0,0,1" Margin="0,5,0,10" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="txtPhone" Width="200" Height="28" Background="Transparent" Foreground="White" BorderBrush="DarkGray" BorderThickness="0,0,0,1" Margin="0,5,0,10" HorizontalAlignment="Left"/>
 
                     <TextBlock Text="Email" Foreground="DarkGray" FontSize="12" FontWeight="Medium"/>
                     <TextBox x:Name="txtEmail" Width="200" Height="28" Background="Transparent" Foreground="White" BorderBrush="DarkGray" BorderThickness="0,0,0,1" Margin="0,5,0,10" HorizontalAlignment="Left"/>
