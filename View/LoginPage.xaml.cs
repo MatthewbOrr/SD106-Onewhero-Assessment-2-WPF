@@ -70,15 +70,15 @@ namespace SD106_Onewhero_Assessment_2.Model
 
             if (role == "admin")
             {
-                mainWindow.MainFrame.Navigate(new AdminDashboardPage(user));
+                mainWindow.MainFrame.Navigate(new HomePage());
                 mainWindow.HeaderFrame.Navigate(new HeaderPage());
                 mainWindow.FooterFrame.Navigate(new FooterPage());
             }
             else
             {
-                mainWindow.MainFrame.Navigate(new VisitorDashboardPage(user.UserId));
                 mainWindow.MainFrame.Navigate(new HomePage());
                 mainWindow.HeaderFrame.Navigate(new HeaderPage());
+                mainWindow.FooterFrame.Navigate(new LoginHeaderPage());
             
             }
         }

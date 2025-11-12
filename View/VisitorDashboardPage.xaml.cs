@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Collections.Generic;
 
 
 namespace SD106_Onewhero_Assessment_2.View
@@ -19,11 +20,48 @@ namespace SD106_Onewhero_Assessment_2.View
         {
             InitializeComponent();
             this.visitorId = visitorId;
-            this.currentUser = new User();
+            this.currentUser = LoadUser(visitorId);
             LoadProfile();
             LoadBookings();
         }
 
+        private User LoadUser(int visitorId)
+        {
+            User user = new User();
+
+            try
+            {
+                using (var conn = DBHelper.GetConnection())
+                {
+                    conn.Open();
+                    string query = @"
+                    SELECT u.user_id, u.name, u.email, u.phone, v.registered_date FROM User u 
+                    JOIN Visitor v ON u.user_id = v.visitor_id
+                    WHERE visitor_id = @id";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@id", visitorId);
+                    var reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        user.UserId = reader.GetInt32("user_id");
+                        user.Name = reader.GetString("name");
+                        user.Email = reader.GetString("email");
+                        user.Phone = reader.GetString("phone");
+                        user.CreatedAt = reader.GetDateTime("registered_date");
+                    }
+                    else
+                    {
+                        MessageBox.Show("User not found.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading user: " + ex.Message);
+            }
+            return user;
+        }
         private void LoadProfile()
         {
             txtName.Text = currentUser.Name;
@@ -154,10 +192,11 @@ namespace SD106_Onewhero_Assessment_2.View
                 }
             }
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Preparing the service");
 
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = (MainWindow)Application.Current.MainWindow;
+            mainWindow.MainFrame.Navigate(new EditDetailsPage(currentUser));
         }
     }
 }

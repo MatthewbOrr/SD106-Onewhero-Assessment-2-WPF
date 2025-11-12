@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SD106_Onewhero_Assessment_2.Model
+namespace SD106_Onewhero_Assessment_2.View
 {
     /// <summary>
     /// Interaction logic for LoginHeaderPage.xaml

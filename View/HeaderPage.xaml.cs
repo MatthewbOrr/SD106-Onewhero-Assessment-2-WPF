@@ -6,7 +6,7 @@ using System.Windows.Navigation;
 using System.Windows.Input;
 
 
-namespace SD106_Onewhero_Assessment_2.view
+namespace SD106_Onewhero_Assessment_2.View
 {
     /// <summary>
     /// Interaction logic for HeaderPage.xaml
@@ -15,10 +15,9 @@ namespace SD106_Onewhero_Assessment_2.view
     {
         private readonly int visitorId;
 
-        public HeaderPage(int visitorId)
+        public HeaderPage()
         {
             InitializeComponent();
-            this.visitorId = visitorId;
         }
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {

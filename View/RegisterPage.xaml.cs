@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using SD106_Onewhero_Assessment_2.Helpers;
 using MySql.Data.MySqlClient;
 using BCrypt.Net;
@@ -34,7 +25,7 @@ namespace SD106_Onewhero_Assessment_2.Model
         {
             string name = txtName.Text;
             string email = txtEmail.Text;
-            string phone = txtPhone.Text.Trim();
+            string phone = txtPhone.Text;
             string password = txtPassword.Password;
 
             if (string.IsNullOrWhiteSpace(name) ||
@@ -56,28 +47,44 @@ namespace SD106_Onewhero_Assessment_2.Model
 
             try
             {
+
+
+                var CheckCmd = new MySqlCommand("SELECT COUNT(*) FROM User WHERE email = @e", conn, tran);
+                CheckCmd.Parameters.AddWithValue("@e", email);
+                long count = (long)CheckCmd.ExecuteScalar();
+                if (count > 0)
+                {
+                    MessageBox.Show("Email already registered. Please use a different email.");
+                    tran.Rollback();
+                    return;
+                }
+
                 var cmdUser = new MySqlCommand("INSERT INTO User (name, email, Phone, password_hash, role) VALUES (@n, @e, @p, @ph, 'visitor')", conn, tran);
                 cmdUser.Parameters.AddWithValue("@n", name);
                 cmdUser.Parameters.AddWithValue("@e", email);
                 cmdUser.Parameters.AddWithValue("@p", phone);
                 cmdUser.Parameters.AddWithValue("@ph", hashed);
                 cmdUser.ExecuteNonQuery();
+                
+                int userId = Convert.ToInt32(cmdUser.LastInsertedId);
+                MessageBox.Show("New User ID: " + userId);
 
-                long userId = cmdUser.LastInsertedId;
-
-                var cmdVisitor = new MySqlCommand(@"INSERT INTO Visitor (visitor_id, registered_date) VALUES (@uid, @reg)", conn, tran);
+                var cmdVisitor = new MySqlCommand(@"
+                INSERT INTO Visitor (visitor_id, registered_date) VALUES (@uid, @reg)", conn, tran);
                 cmdVisitor.Parameters.AddWithValue("@uid", userId);
                 cmdVisitor.Parameters.AddWithValue("@reg", DateTime.Now.Date);
                 cmdVisitor.ExecuteNonQuery();
+                MessageBox.Show("Visitor record inserted for user ID: " + userId);
 
                 foreach (CheckBox cb in interestPanel.Children.OfType<CheckBox>())
                 {
                     if (cb.IsChecked == true)
                     {
                         int interestId = Convert.ToInt32(cb.Tag);
-                        var cmdInterest = new MySqlCommand("INSERT INTO VisitorInterest (user_id, interest) VALUES (@uid, @int)", conn, tran);
+                        var cmdInterest = new MySqlCommand(
+                            @"INSERT INTO VisitorInterest (visitor_id, interest_id) VALUES (@uid, @iid)", conn, tran);
                         cmdInterest.Parameters.AddWithValue("@uid", userId);
-                        cmdInterest.Parameters.AddWithValue("@int", cb.Content.ToString());
+                        cmdInterest.Parameters.AddWithValue("@iid", interestId);
                         cmdInterest.ExecuteNonQuery();
                     }
                 }
@@ -85,8 +92,7 @@ namespace SD106_Onewhero_Assessment_2.Model
                 tran.Commit();
                 MessageBox.Show("Registration Successful!");
                 NavigationService?.Navigate(new LoginPage());
-
-             
+            
             }
             catch (Exception ex)
             {

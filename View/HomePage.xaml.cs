@@ -22,21 +22,28 @@ namespace SD106_Onewhero_Assessment_2.Model
             InitializeComponent();
         }
 
-       /* private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
-                DragMove();
+            {
+                Window parentWindow = Window.GetWindow(this);
+                parentWindow?.DragMove();
+            }
         }
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
-            WindowState = WindowState.Minimized;
+            Window parentWindow = Window.GetWindow(this);
+            if (parentWindow != null)
+            {
+                parentWindow.WindowState = WindowState.Minimized;
+            }
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
-        }*/
+        }
 
         private void Image_SizeChanged(object sender, SizeChangedEventArgs e)
         {

@@ -14,7 +14,7 @@
                 BorderThickness="2">
 
 
-            <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Stretch" spacing="10">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Stretch">
                 
                 <!-- Title Page -->
                 <TextBlock Text="Edit Your Details"
@@ -28,35 +28,34 @@
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="Name"></TextBlock>
                  <!-- Textbox for input -->
-                    <TextBox Name="txtName"/>
+                    <TextBox x:Name="txtName"/>
                 </StackPanel>
 
                 <!-- Email Input -->
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="Email"></TextBlock>
                     <!-- Textbox for input -->
-                    <TextBox Name="txtName"/>
+                    <TextBox x:Name="txtEmail"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="Phone"></TextBlock>
                     <!-- Textbox for input -->
-                    <TextBox Name="txtPhone"/>
+                    <TextBox x:Name="txtPhone"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="Password"></TextBlock>
                     <!-- Textbox for input -->
-                    <TextBox Name="txtPassword"/>
+                    <TextBox x:Name="txtPassword"/>
                 </StackPanel>
                 
                 <!-- Buttons -->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,15,0,0" Spacing="10">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,15,0,0">
                     <!-- Save button -->
                     <Button Content="Save" Width="80" Background="#156aac" Foreground="White" Click="btnSave_Click"/>
                     <!-- Cancel button -->
                     <Button Content="Cancel" Width="80" Background="#156aac" Foreground="White" Click="btnCancel_Click"/>
-
                 </StackPanel>
 
             </StackPanel>

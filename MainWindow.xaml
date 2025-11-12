@@ -36,26 +36,28 @@
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
 
+                <!-- Header Content Frame -->
+                <Frame x:Name="HeaderFrame"
+                       Grid.Row="0"
+                       NavigationUIVisibility="Hidden"
+                       Background="Transparent"/>
+
                 <!-- Main Content Frame -->
                 <Border Grid.Row="1"
                         Margin="50,10,50,10"
                         CornerRadius="3"
                         Background="#19FFFFFF">
                     
-                    <Frame Name="MainFrame"
+                    <Frame x:Name="MainFrame"
                            NavigationUIVisibility="Hidden"
                            Background="Transparent"/>
                 </Border>
 
-                <!-- Header Content Frame -->
-                <Frame Name="HeaderFrame"
-                       Grid.Row="0"
-                       NavigationUIVisibility="Hidden"
-                       Background="Transparent"/>
+
 
 
                 <!-- Footer Content Frame -->
-                <Frame Name="FooterFrame"
+                <Frame x:Name="FooterFrame"
                        Grid.Row="2"
                        NavigationUIVisibility="Hidden"
                        Background="Transparent"/>
