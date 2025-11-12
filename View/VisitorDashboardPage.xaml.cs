@@ -12,8 +12,8 @@ namespace SD106_Onewhero_Assessment_2.View
 
     public partial class VisitorDashboardPage : Page
     {
-        private User currentUser;
-        private int visitorId;
+        private readonly User currentUser;
+        private readonly int visitorId;
 
         public VisitorDashboardPage(int visitorId)
         {

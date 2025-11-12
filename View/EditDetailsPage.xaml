@@ -1,0 +1,69 @@
+﻿<Page x:Class="SD106_Onewhero_Assessment_2.View.EditDetailsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="EditDetailsPage">
+
+    <Grid Background="#80000000">
+        <Border Width="400" Height="300"
+                Background="White"
+                CornerRadius="8"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Padding="20"
+                BorderBrush="#156aac"
+                BorderThickness="2">
+
+
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Stretch" spacing="10">
+                
+                <!-- Title Page -->
+                <TextBlock Text="Edit Your Details"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Foreground="#156aac"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,10"/>
+                
+                <!-- Name Input -->
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Name"></TextBlock>
+                 <!-- Textbox for input -->
+                    <TextBox Name="txtName"/>
+                </StackPanel>
+
+                <!-- Email Input -->
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Email"></TextBlock>
+                    <!-- Textbox for input -->
+                    <TextBox Name="txtName"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Phone"></TextBlock>
+                    <!-- Textbox for input -->
+                    <TextBox Name="txtPhone"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Password"></TextBlock>
+                    <!-- Textbox for input -->
+                    <TextBox Name="txtPassword"/>
+                </StackPanel>
+                
+                <!-- Buttons -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,15,0,0" Spacing="10">
+                    <!-- Save button -->
+                    <Button Content="Save" Width="80" Background="#156aac" Foreground="White" Click="btnSave_Click"/>
+                    <!-- Cancel button -->
+                    <Button Content="Cancel" Width="80" Background="#156aac" Foreground="White" Click="btnCancel_Click"/>
+
+                </StackPanel>
+
+            </StackPanel>
+                 
+
+        </Border>
+
+
+    </Grid>
+</Page>
