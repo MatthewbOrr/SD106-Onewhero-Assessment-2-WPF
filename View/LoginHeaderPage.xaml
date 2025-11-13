@@ -1,4 +1,4 @@
-﻿<Page x:Class="SD106_Onewhero_Assessment_2.Model.LoginHeaderPage"
+﻿<Page x:Class="SD106_Onewhero_Assessment_2.View.LoginHeaderPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 

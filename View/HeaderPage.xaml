@@ -1,4 +1,4 @@
-﻿<Page x:Class="SD106_Onewhero_Assessment_2.Model.HeaderPage"
+﻿<Page x:Class="SD106_Onewhero_Assessment_2.View.HeaderPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -20,8 +20,8 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
             <Image Source="/images/Logo_8.png" HorizontalAlignment="Left" Margin="15,2,0,2"/>
 
-            <Button Name="Title" Background="Transparent" BorderThickness="0" 
-                    Margin="10,0,0,0" Click="Title_Click">
+            <Button Name="btnTitle" Background="Transparent" BorderThickness="0" 
+                    Margin="10,0,0,0" Click="btnTitle_Click">
                 <TextBlock  Text="Onewhero Heritage Park" Foreground="White" FontSize="18"
        FontFamily="Mongolian Baiti" Grid.Column="0" VerticalAlignment="Center" Cursor="Hand" />
             </Button>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Specialized;
+﻿using SD106_Onewhero_Assessment_2.Model;
+using SD106_Onewhero_Assessment_2.View;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
@@ -8,6 +9,45 @@ namespace SD106_Onewhero_Assessment_2
 
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
+
+        public User CurrentUser { get; set; }
+        private string boundText = string.Empty;
+        public string BoundText
+        {
+            get => boundText;
+            set
+            {
+                boundText = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(BoundText)));
+            }
+        }
+        public MainWindow()
+        {
+            DataContext = this;
+            InitializeComponent();
+
+            LoadLoginView();
+            
+                }
+
+        public void LoadLoginView()
+        {
+            HeaderFrame.Navigate(new LoginHeaderPage());
+            MainFrame.Navigate(new LoginPage());
+            FooterFrame.Navigate(new FooterPage());
+
+        }
+
+        public void LoadMainView()
+        {
+            HeaderFrame.Navigate(new HeaderPage());
+            MainFrame.Navigate(new HomePage());
+            FooterFrame.Navigate(new FooterPage());
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+     
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -22,29 +62,6 @@ namespace SD106_Onewhero_Assessment_2
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
-        }
-
-        bool running  = false;
-        public MainWindow()
-        {
-            DataContext = this;
-            InitializeComponent();
-            MainFrame.Navigate(new Model.LoginPage());
-            HeaderFrame.Navigate(new Model.LoginHeaderPage());
-
-        }
-        private string boundText;
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        public string BoundText
-        {
-            get { return boundText; }
-            set
-            {
-                boundText = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BoundText"));
-            }
         }
     }
 }
