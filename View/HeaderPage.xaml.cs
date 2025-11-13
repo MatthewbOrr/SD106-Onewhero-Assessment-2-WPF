@@ -1,9 +1,6 @@
-﻿using SD106_Onewhero_Assessment_2.View;
-using SD106_Onewhero_Assessment_2.Model;    
+﻿using SD106_Onewhero_Assessment_2.Model;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
-using System.Windows.Input;
 
 
 namespace SD106_Onewhero_Assessment_2.View

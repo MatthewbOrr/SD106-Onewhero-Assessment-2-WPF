@@ -44,6 +44,10 @@ namespace SD106_Onewhero_Assessment_2.Model
         [Column("created_at")]
         public DateTime CreatedAt { get; set; }
 
+        [Required]
+        [Column ("Interest_name")]
+        public string Interests { get; set; } = "";
+
         // One-to-many relationship with Booking
         public List<Booking>? Bookings { get; set; }
     }

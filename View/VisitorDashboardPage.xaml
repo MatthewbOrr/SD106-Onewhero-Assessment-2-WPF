@@ -20,12 +20,13 @@
 
         <!-- User Profile -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,20">
-        <TextBlock Text="Welcome, [UserName]" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,10,0"/>
+        <TextBlock x:Name="txtWelcome" Text="Welcome, [UserName]" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,10,0"/>
         <Button Content="Edit Details" Width="80" Height="24" Background="#156aac" Foreground="White" Cursor="Hand" Click="btnEdit_Click"/>
         </StackPanel>
         
         <Grid Grid.Row="1" Margin="0,0,0,20">
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -47,6 +48,9 @@
 
             <TextBlock Text="Registered:" Grid.Row="3" Grid.Column="0" Foreground="White" FontWeight="Bold"/>
             <TextBlock x:Name="txtRegistered" Grid.Row="3" Grid.Column="1" Foreground="White"/>
+
+            <TextBlock Text="Area Of Interest:" Grid.Row="4" Grid.Column="0" Foreground="White" FontWeight="Bold"/>
+            <TextBlock x:Name="txtInterest" Grid.Row="4" Grid.Column="1" Foreground="White"/>
 
         </Grid>
 

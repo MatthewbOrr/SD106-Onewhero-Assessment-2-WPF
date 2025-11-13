@@ -21,6 +21,8 @@ namespace SD106_Onewhero_Assessment_2.View
             InitializeComponent();
             this.visitorId = visitorId;
             this.currentUser = LoadUser(this.visitorId);
+            txtInterest.Text = currentUser.Interests;
+            txtWelcome.Text = $"Welcome, {currentUser.Name}";
             LoadProfile();
             LoadBookings();
         }
@@ -54,7 +56,26 @@ namespace SD106_Onewhero_Assessment_2.View
                     else
                     {
                         MessageBox.Show("User not found.");
+                        return user;
                     }
+                    reader.Close();
+
+                    string queryInterest = @"
+                    SELECT i.Interest_name
+                    FROM Visitor_Interest vi
+                    JOIN Interest i ON vi.interest_id = i.interest_id
+                    WHERE vi.visitor_id = @id";
+
+                    MySqlCommand cmdInterest = new MySqlCommand(queryInterest, conn);
+                    cmdInterest.Parameters.AddWithValue("@id", visitorId);
+                    var readerInterest = cmdInterest.ExecuteReader();
+
+                    List<string> interests = new List<string>();
+                    while (readerInterest.Read())
+                    {
+                        interests.Add(readerInterest.GetString("Interest_name"));
+                    }
+                    user.Interests = string.Join(", ", interests);
                 }
             }
             catch (Exception ex)
