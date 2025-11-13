@@ -72,7 +72,7 @@ namespace SD106_Onewhero_Assessment_2.Model
                 var cmdVisitor = new MySqlCommand(@"
                 INSERT INTO Visitor (visitor_id, registered_date) VALUES (@uid, @reg)", conn, tran);
                 cmdVisitor.Parameters.AddWithValue("@uid", userId);
-                cmdVisitor.Parameters.AddWithValue("@reg", DateTime.Now.Date);
+                cmdVisitor.Parameters.AddWithValue("@reg", DateTime.Now);
                 cmdVisitor.ExecuteNonQuery();
                 MessageBox.Show("Visitor record inserted for user ID: " + userId);
 

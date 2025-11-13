@@ -20,7 +20,7 @@ namespace SD106_Onewhero_Assessment_2.View
         {
             InitializeComponent();
             this.visitorId = visitorId;
-            this.currentUser = LoadUser(visitorId);
+            this.currentUser = LoadUser(this.visitorId);
             LoadProfile();
             LoadBookings();
         }
@@ -35,7 +35,8 @@ namespace SD106_Onewhero_Assessment_2.View
                 {
                     conn.Open();
                     string query = @"
-                    SELECT u.user_id, u.name, u.email, u.phone, v.registered_date FROM User u 
+                    SELECT u.user_id, u.name, u.email, u.phone, v.registered_date 
+                    FROM User u 
                     JOIN Visitor v ON u.user_id = v.visitor_id
                     WHERE visitor_id = @id";
                     MySqlCommand cmd = new MySqlCommand(query, conn);

@@ -11,6 +11,8 @@ namespace SD106_Onewhero_Assessment_2
 
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
+
+        public User CurrentUser { get; set; }
         private string boundText = string.Empty;
         public string BoundText
         {

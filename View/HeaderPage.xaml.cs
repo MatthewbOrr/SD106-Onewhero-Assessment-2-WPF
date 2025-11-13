@@ -67,14 +67,14 @@ namespace SD106_Onewhero_Assessment_2.View
         {
             var mainWindow = (MainWindow)Application.Current.MainWindow;
 
-            mainWindow.MainFrame.Navigate(new BookingPage(visitorId));
+            mainWindow.MainFrame.Navigate(new BookingPage(mainWindow.CurrentUser.UserId));
         }
 
         private void VisitorDashboard_Click(object sender, RoutedEventArgs e)
         {
             var mainWindow = (MainWindow)Application.Current.MainWindow;
 
-            mainWindow.MainFrame.Navigate(new VisitorDashboardPage(visitorId));
+            mainWindow.MainFrame.Navigate(new VisitorDashboardPage(mainWindow.CurrentUser.UserId));
         }
     }
 }

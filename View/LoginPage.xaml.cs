@@ -67,6 +67,7 @@ namespace SD106_Onewhero_Assessment_2.Model
             var user = new User { Email = email, UserId = userId, Role = role, Name = name };
 
             var mainWindow = (MainWindow)Application.Current.MainWindow;
+            mainWindow.CurrentUser = user;
 
             if (role == "admin")
             {
