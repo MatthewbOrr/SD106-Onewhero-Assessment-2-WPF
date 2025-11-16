@@ -62,7 +62,7 @@ namespace SD106_Onewhero_Assessment_2.View
 
                     string queryInterest = @"
                     SELECT i.Interest_name
-                    FROM Visitor_Interest vi
+                    FROM VisitorInterest vi
                     JOIN Interest i ON vi.interest_id = i.interest_id
                     WHERE vi.visitor_id = @id";
 
