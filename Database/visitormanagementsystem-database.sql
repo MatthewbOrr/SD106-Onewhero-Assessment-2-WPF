@@ -76,9 +76,21 @@ FOREIGN KEY (visitor_id) REFERENCES Visitor(visitor_id) ON DELETE CASCADE,
 FOREIGN KEY (interest_id) REFERENCES Visitor(visitor_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-DESCRIBE interest;
+-- 9. Sample Promotion
+INSERT INTO Promotion (admin_id, message, target_audience, start_date, end_date)
+VALUES (3, 'Summer family discount 20% for Museum!!!', 'Museum', '2025-11-20', '2025-12-01');
+
+DESCRIBE PROMOTION;
+SELECT * FROM PROMOTION;
+
+-- 10. Sample booking session
+SET @vID = (SELECT visitor_id FROM Visitor WHERE visitor_id = (SELECT user_id FROM User WHERE email='testvisitor@gmail.com'));
+SET @eID = (SELECT event_id FROM Event WHERE title='Kiwi Twilight Encounter' LIMIT 1);
+INSERT INTO Booking (visitor_id, event_id, number_of_tickets, status)
+VALUES (@vID, @eID, 2, 'confirmed');
 
 
+-- Insert Interest Name
 INSERT IGNORE INTO INTEREST (interest_name) VALUES
 ('Kiwi Twilight Enclosure'),
 ('Marae'),
@@ -117,13 +129,7 @@ INSERT INTO Event (event_id, title, description, date, location, capacity, admin
 (6, 'Sunrise Yoga by the Lake', 'Start your day with a peaceful yoga session surrounded by nature. Mats provided. Herbal tea served afterward. Open to all levels. Duration 1hr', '2025-12-07 07:00:00', 'Lakeside Deck', 30, 3),
 (7, 'Holiday Craft & Storytelling Fair', 'Celebrate the season with handmade crafts, festive storytelling, and family activities. Includes ornament-making and a visit from a bush-dwelling Santa. Duration 4hrs', '2025-12-14 10:00:00', 'Visitor Pavilion', 40, 3);
 
-describe event;
-select * from event;
-
-
-DESCRIBE interest;
-show columns from interest;
-
+-- Test Visitor user register
 INSERT INTO `User` (name, email, password_hash, phone) VALUES
 ('TEST VISITOR', 'testvisitor@gmail.com', '$2a$11$whnEvEiRhln0TuZZSGsxO.ACt3m2OKyPesA2hfMhuXzqUCRf7Uvby', '02101234578');
 INSERT INTO Visitor (visitor_id, registered_date) VALUES (LAST_INSERT_ID(), CURDATE());
@@ -166,21 +172,41 @@ SELECT * FROM `User`;
 
 DESCRIBE PROMOTION;
 
--- 9. Sample Promotion
-INSERT INTO Promotion (admin_id, message, target_audience, start_date, end_date)
-VALUES (3, 'Summer family discount 20% for Museum!!!', 'Museum', '2025-11-20', '2025-12-01');
-
-DESCRIBE PROMOTION;
-SELECT * FROM PROMOTION;
-
--- 10. Sample booking session
-SET @vID = (SELECT visitor_id FROM Visitor WHERE visitor_id = (SELECT user_id FROM User WHERE email='testvisitor@gmail.com'));
-SET @eID = (SELECT event_id FROM Event WHERE title='Kiwi Twilight Encounter' LIMIT 1);
-INSERT INTO Booking (visitor_id, event_id, number_of_tickets, status)
-VALUES (@vID, @eID, 2, 'confirmed');
-
 SELECT * FROM booking;
 SELECT 'BOOKINGS' AS what, b.booking_id, b.visitor_id, u.name AS visitor_name, e.title, b.status FROM Booking b
 JOIN `User` u ON b.visitor_id = u.user_id
 JOIN Event e ON b.event_id = e.event_id;
+
+describe VisitorInterest;
+INSERT INTO VisitorInterest (visitor_id, interest) VALUES (@uid, @int);
+
+SELECT * FROM Visitor WHERE visitor_id = User.user_id;
+SELECT * FROM visitor;
+SELECT * FROM user;
+
+SELECT u.user_id, u.name, u.email, u.role, v.registered_date
+FROM User u
+JOIN Visitor v ON u.user_id = v.visitor_id;
+SELECT * FROM Visitor WHERE visitor_id = 11;
+SELECT * FROM Visitor ORDER BY visitor_id DESC;
+SELECT * FROM User ORDER BY user_id DESC;
+SELECT u.user_id, u.name, u.email, u.phone, v.registered_date
+FROM User u
+JOIN Visitor v ON u.user_id = v.visitor_id
+WHERE v.visitor_id = 11;
+
+-- Fixing bugs, connection and edit tables
+-- Add a column (create_at) in admin
+ALTER TABLE admin
+ADD COLUMN created_at DATETIME DEFAULT CURRENT_TIMESTAMP AFTER role_description;
+SELECT u.user_id, u.name, u.email, u.phone, v.registered_date
+FROM User u
+JOIN Visitor v ON u.user_id = v.visitor_id
+WHERE v.visitor_id = 11;
+SELECT * FROM Visitor WHERE visitor_id = (SELECT user_id FROM User WHERE email='tester@gmail.com');
+SELECT i.Interest_name
+FROM VisitorInterest vi
+JOIN Interest i ON vi.interest_id = i.Interest_id
+WHERE vi.visitor_id = @id;
+DESCRIBE visitor;
 
