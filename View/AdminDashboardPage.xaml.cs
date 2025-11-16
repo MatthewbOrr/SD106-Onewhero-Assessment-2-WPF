@@ -1,64 +1,94 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Collections.Generic;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using SD106_Onewhero_Assessment_2.Helpers;
-using SD106_Onewhero_Assessment_2.Model;
 using MySql.Data.MySqlClient;
+using System.Windows;
 
 namespace SD106_Onewhero_Assessment_2.View
 {
     public partial class AdminDashboardPage : Page
     {
-        public User currentUser;
-
-        public AdminDashboardPage(User user)
+        public AdminDashboardPage()
         {
             InitializeComponent();
-            currentUser = user;
-            LoadEventList();
+            LoadUser();
+            LoadBookings();
         }
 
-        private void LoadEventList()
+        private void LoadUser()
         {
-            using (var conn = DBHelper.GetConnection())
+            var users = new List<dynamic>();
+
+            using var conn = DBHelper.GetConnection();
+            conn.Open();
+
+            var cmd = new MySqlCommand("SELECT user_id, name, email, phone, role FROM User", conn);
+            using var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
             {
-                conn.Open();
-
-                var cmd = new MySqlCommand(
-                    "SELECT event_id, title, date, location, capacity FROM Event WHERE admin_id = @aid",
-                    conn);
-                cmd.Parameters.AddWithValue("@aid", currentUser?.UserId ?? throw new InvalidOperationException("currentUser is null"));
-
-                using (var reader = cmd.ExecuteReader())
+                users.Add(new
                 {
-                    while (reader.Read())
-                    {
-                        string title = reader.GetString("title");
-                        string date = reader.GetDateTime("date").ToString("yyyy-MM-dd HH:mm");
-                        string location = reader.GetString("location");
-                        int capacity = reader.GetInt32("capacity");
-
-                        var item = new ListBoxItem
-                        {
-                            Content = $"{title} - {date} @ {location} (Capacity: {capacity})",
-                            Foreground = System.Windows.Media.Brushes.DarkBlue,
-                        };
-
-                        lstEvents.Items.Add(item);
-                    }
-                }
+                    UserId = reader.GetInt32("user_id"),
+                    Name = reader.GetString("name"),
+                    Email = reader.GetString("email"),
+                    Phone = reader.GetString("phone"),
+                    Role = reader.GetString("role")
+                });
             }
+
+            dataUsers.ItemsSource = users;
+            txtStatus.Text = $"Total Users: {users.Count}";
+        }
+
+        private void LoadBookings()
+        {
+            var bookings = new List<dynamic>();
+
+            using var conn = DBHelper.GetConnection();
+            conn.Open();
+
+            var cmd = new MySqlCommand(@"
+                SELECT 
+                    b.booking_id, 
+                    u.name AS user_name, 
+                    e.title AS event_title, 
+                    b.number_of_tickets, 
+                    b.status 
+                FROM Booking b
+                JOIN User u ON b.user_id = u.user_id
+                JOIN Event e ON b.event_id = e.event_id", conn);
+
+            using var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                bookings.Add(new
+                {
+                    BookingId = reader.GetInt32("booking_id"),
+                    UserName = reader.GetString("user_name"),
+                    EventTitle = reader.GetString("event_title"),
+                    NumberOfTickets = reader.GetInt32("number_of_tickets"),
+                    Status = reader.GetString("status")
+                });
+            }
+            dataBookings.ItemsSource = bookings;
+            txtStatus.Text = $"Total Bookings: {bookings.Count}";
+        }
+
+        private void UpdateBookingStatus (int bookingId, string newStatus)
+        {
+            using var conn = DBHelper.GetConnection();
+            conn.Open();
+
+            var cmd = new MySqlCommand("UPDATE Booking SET status = @status WHERE booking_id = @id", conn);
+            cmd.Parameters.AddWithValue("@status", newStatus);
+            cmd.Parameters.AddWithValue("@id", bookingId);
+
+            cmd.ExecuteNonQuery();
+            txtStatus.Text = $"Booking {bookingId} updated to {newStatus}.";
+            LoadBookings();
+
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Windows;
 using SD106_Onewhero_Assessment_2.Model;
 using SD106_Onewhero_Assessment_2.Helpers;
 using MySql.Data.MySqlClient;
+using BCrypt.Net;
 
 namespace SD106_Onewhero_Assessment_2.View
 {
@@ -27,22 +28,49 @@ namespace SD106_Onewhero_Assessment_2.View
             currentUser.Name = txtName.Text;
             currentUser.Email = txtEmail.Text;
             currentUser.Phone = txtPhone.Text;
-
+           
             try
             {
                 using (var conn = DBHelper.GetConnection())
                 {
                     conn.Open();
-                    string query = "UPDATE User SET name=@n, email=@e, phone=@p WHERE user_id = @id";
 
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@n", currentUser.Name);
-                    cmd.Parameters.AddWithValue("@e", currentUser.Email);
-                    cmd.Parameters.AddWithValue("@p", currentUser.Phone);
-                    cmd.Parameters.AddWithValue("@id", currentUser.UserId);
-                    cmd.ExecuteNonQuery();
-                }
-                MessageBox.Show("Details updated successfully.");
+                    var CheckCmd = new MySqlCommand("SELECT COUNT(*) FROM User WHERE email = @e AND user_id<> @id", conn);
+                    CheckCmd.Parameters.AddWithValue("@e", currentUser.Email);
+                    CheckCmd.Parameters.AddWithValue("@id", currentUser.UserId);
+                    long count = (long)CheckCmd.ExecuteScalar();
+
+                    if (count > 0)
+                    {
+                        MessageBox.Show("Email already in use by another account. Please use a different email.");
+                        return;
+                    }
+
+                    string query;
+                    var cmd = new MySqlCommand();
+                    cmd.Connection = conn;
+
+                    if (!string.IsNullOrWhiteSpace(txtPassword.Password))
+                    {
+                        string hashed = BCrypt.Net.BCrypt.HashPassword(txtPassword.Password);
+                        query = "UPDATE User SET name=@n, email=@e, phone=@p, password_hash=@ph WHERE user_id=@id";
+                        cmd.CommandText = query;
+                        cmd.Parameters.AddWithValue("@ph", hashed);
+                    }
+                    else
+                    {
+                        query = "UPDATE User SET name = @n, email = @e, phone = @p WHERE user_id = @id";
+                        cmd.CommandText = query;
+                    }
+                        
+                        cmd.Parameters.AddWithValue("@n", currentUser.Name);
+                        cmd.Parameters.AddWithValue("@e", currentUser.Email);
+                        cmd.Parameters.AddWithValue("@p", currentUser.Phone);
+                        cmd.Parameters.AddWithValue("@id", currentUser.UserId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    MessageBox.Show("Details updated successfully.");
+                
 
             }
             catch (Exception ex)

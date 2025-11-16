@@ -47,7 +47,7 @@
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="Password"></TextBlock>
                     <!-- Textbox for input -->
-                    <TextBox x:Name="txtPassword"/>
+                    <PasswordBox x:Name="txtPassword"/>
                 </StackPanel>
                 
                 <!-- Buttons -->

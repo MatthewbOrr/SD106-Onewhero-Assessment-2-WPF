@@ -40,9 +40,8 @@ namespace SD106_Onewhero_Assessment_2.Model
             }
 
             string hash = reader.GetString("password_hash");
-            bool ok = !BCrypt.Net.BCrypt.Verify(password, hash) || password == hash;
+            if (!BCrypt.Net.BCrypt.Verify(password, hash))
 
-            if (!ok)
             {
                 MessageBox.Show("Invalid email or password.", "Login Failed");
                 return;
