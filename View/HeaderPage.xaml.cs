@@ -10,7 +10,6 @@ namespace SD106_Onewhero_Assessment_2.View
     /// </summary>
     public partial class HeaderPage : Page
     {
-        private readonly int visitorId;
 
         public HeaderPage()
         {

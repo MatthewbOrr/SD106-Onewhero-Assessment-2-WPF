@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using SD106_Onewhero_Assessment_2.Helpers;
 using MySql.Data.MySqlClient;
 using System.Windows;
+using System.Linq.Expressions;
 
 namespace SD106_Onewhero_Assessment_2.View
 {
@@ -29,11 +30,11 @@ namespace SD106_Onewhero_Assessment_2.View
             {
                 users.Add(new
                 {
-                    UserId = reader.GetInt32("user_id"),
-                    Name = reader.GetString("name"),
-                    Email = reader.GetString("email"),
-                    Phone = reader.GetString("phone"),
-                    Role = reader.GetString("role")
+                    user_id = reader.GetInt32("user_id"),
+                    name = reader.GetString("name"),
+                    email = reader.GetString("email"),
+                    phone = reader.GetString("phone"),
+                    role = reader.GetString("role")
                 });
             }
 
@@ -51,12 +52,12 @@ namespace SD106_Onewhero_Assessment_2.View
             var cmd = new MySqlCommand(@"
                 SELECT 
                     b.booking_id, 
-                    u.name AS user_name, 
+                    u.name AS user_name,
                     e.title AS event_title, 
                     b.number_of_tickets, 
                     b.status 
                 FROM Booking b
-                JOIN User u ON b.user_id = u.user_id
+                JOIN User u ON b.visitor_id = u.user_id
                 JOIN Event e ON b.event_id = e.event_id", conn);
 
             using var reader = cmd.ExecuteReader();
@@ -65,30 +66,56 @@ namespace SD106_Onewhero_Assessment_2.View
             {
                 bookings.Add(new
                 {
-                    BookingId = reader.GetInt32("booking_id"),
-                    UserName = reader.GetString("user_name"),
-                    EventTitle = reader.GetString("event_title"),
-                    NumberOfTickets = reader.GetInt32("number_of_tickets"),
-                    Status = reader.GetString("status")
+                    booking_id = reader.GetInt32("booking_id"),
+                    user_name = reader.GetString("user_name"),
+                    event_title = reader.GetString("event_title"),
+                    number_of_tickets = reader.GetInt32("number_of_tickets"),
+                    status = reader.GetString("status")
                 });
             }
             dataBookings.ItemsSource = bookings;
             txtStatus.Text = $"Total Bookings: {bookings.Count}";
         }
 
-        private void UpdateBookingStatus (int bookingId, string newStatus)
+        private void UpdateBookingStatus(int bookingId, string newStatus)
         {
-            using var conn = DBHelper.GetConnection();
-            conn.Open();
+            try
+            {
+                using var conn = DBHelper.GetConnection();
+                conn.Open();
 
-            var cmd = new MySqlCommand("UPDATE Booking SET status = @status WHERE booking_id = @id", conn);
-            cmd.Parameters.AddWithValue("@status", newStatus);
-            cmd.Parameters.AddWithValue("@id", bookingId);
+                var cmd = new MySqlCommand("UPDATE Booking SET status = @status WHERE booking_id = @id", conn);
+                cmd.Parameters.AddWithValue("@status", newStatus);
+                cmd.Parameters.AddWithValue("@id", bookingId);
 
-            cmd.ExecuteNonQuery();
-            txtStatus.Text = $"Booking {bookingId} updated to {newStatus}.";
-            LoadBookings();
+                cmd.ExecuteNonQuery();
+                txtStatus.Text = $"Booking {bookingId} updated to {newStatus}.";
+                LoadBookings();
+            }
+            catch (Exception ex)
+            {
+                txtStatus.Text = $"Error updating booking: {ex.Message}";
+            }
+        }
+        private void btnConfirm_Click(object sender, RoutedEventArgs e)
+        {
+            var selected = dataBookings.SelectedItem;
+            if (selected != null) 
+            {
+                dynamic booking = selected;
+                UpdateBookingStatus(booking.booking_id, "Confirmed");
 
+            }
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            var selected = dataBookings.SelectedItem;
+            if (selected != null)  
+            {
+                dynamic booking = selected;
+                UpdateBookingStatus(booking.booking_id, "Cancelled"); ;
+            }
         }
     }
 }

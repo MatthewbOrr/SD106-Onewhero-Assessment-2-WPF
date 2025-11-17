@@ -57,8 +57,33 @@
         <!-- Upcoming Events -->
         <TextBlock Grid.Row="2" Text="Upcoming Booked events" Foreground="White" FontSize="18" FontWeight="Bold" Margin="0,0,0,10" VerticalAlignment="center"/>
         <Button Grid.Row="2" Content="Cancel Booking" Width="100" Height="30" Background="#156AAC" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="center" Cursor="Hand" Click="CancelBooking_Click" Margin="10"/>
-        <ScrollViewer Grid.Row="3" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
-                <StackPanel x:Name="EventListPanel"/>
-            </ScrollViewer>
+        <DataGrid Name="dataUpcomingEvents"
+                  Grid.Row="3"
+                  AutoGenerateColumns="False"
+                  Background="White"
+                  Foreground="Black"
+                  FontSize="14"
+                  CanUserAddRows="False"
+                  IsReadOnly="True"
+                  Height="250"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Booking ID" Binding="{Binding booking_id}" Width="80"/>
+                <DataGridTextColumn Header="Event Name" Binding="{Binding event_title}" Width="200"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding description}" Width="200"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding event_date}" Width="100"/>
+                <DataGridTextColumn Header="Time" Binding="{Binding event_time}" Width="100"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding status}" Width="80"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBlock Name="txtStatus"
+                   Foreground="Black"
+                   FontSize="12"
+                   Margin="5,10,0,0">
+            
+        </TextBlock>
+          
+       
     </Grid>
 </Page>
