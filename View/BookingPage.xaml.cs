@@ -63,7 +63,7 @@ namespace SD106_Onewhero_Assessment_2.View
         }
         private bool IsChecked(int checkboxRow)
         {
-            foreach (UIElement element in ((Grid)((ScrollViewer)Content).Content).Children)
+            foreach (UIElement element in ((Grid)MainScroll.Content).Children)
             {
                 if (Grid.GetRow(element) == checkboxRow && Grid.GetColumn(element) == 1 && element is CheckBox cb)
                 {

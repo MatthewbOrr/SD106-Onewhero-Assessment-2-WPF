@@ -12,7 +12,7 @@
         
         
         
-        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Width="680">
+        <ScrollViewer x:Name="MainScroll" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Width="680">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
@@ -243,7 +243,7 @@ Celebrate the season with handmade crafts, festive storytelling, and family acti
                 <!-- Booking Button -->
                 <Button Grid.Row="9" Name="btnBook" Width="100" Height="28" HorizontalAlignment="Center"
 Background="#156aac" BorderThickness="0" Content="Book" Foreground="White"
-FontSize="16" FontFamily="Arial" Cursor="Hand" Margin="10">
+FontSize="16" FontFamily="Arial" Cursor="Hand" Margin="10" Click="btnBook_Click">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="5"
