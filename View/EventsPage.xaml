@@ -14,11 +14,14 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        
+            <!-- Everything wrapped in a large text block -->
             <TextBlock Foreground="White" TextWrapping="Wrap" Grid.Row="0">
+                <!-- Title, using a Run inside the textblock so we only need one textblock -->
             <Run Text="Upcoming Events" FontSize="24" Foreground="White" FontWeight="SemiBold"/>
+                <!-- Using linebreaks for spaces between words -->
             <LineBreak/>
             <LineBreak/>
+                <!-- No run needed for text if it's all bound inside a textblock -->
             20 November – Māori Flax Weaving Workshop
             <LineBreak/>
 Time: 10:00 AM – 12:30 PM 

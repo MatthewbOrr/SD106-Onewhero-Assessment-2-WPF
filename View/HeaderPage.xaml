@@ -25,9 +25,9 @@
                 <TextBlock  Text="Onewhero Heritage Park" Foreground="White" FontSize="18"
        FontFamily="Mongolian Baiti" Grid.Column="0" VerticalAlignment="Center" Cursor="Hand" />
             </Button>
-        
 
 
+            <!-- Using words as buttons again like a typical header bar -->
             <Button Name="Attractions" Background="Transparent" Margin="40,0,0,0"
                     BorderThickness="0" Click="Attractions_Click">
                 <TextBlock Text="Attractions"
@@ -80,7 +80,7 @@
             </Button>
 
         </StackPanel>
-
+        <!-- A button to minimize the application -->
         <Button Name="btnMinimize" Background="#28aeed" BorderThickness="0" Content="-" Foreground="White"
             FontSize="16" FontFamily="Mongolian Baiti" Cursor="Hand" Grid.Column="1" Click="btnMinimize_Click">
         <Button.Template>
@@ -93,8 +93,8 @@
             </ControlTemplate>
         </Button.Template>
     </Button>
-
-    <Button Name="btnClose" Background="#0D8756" BorderThickness="0" Content="x" Foreground="White"
+        <!-- A button to close the application, exiting the program -->
+        <Button Name="btnClose" Background="#0D8756" BorderThickness="0" Content="x" Foreground="White"
             FontSize="12" FontFamily="Arial" Cursor="Hand" Grid.Column="2" Click="btnClose_Click">
 
         <Button.Template>

@@ -13,6 +13,7 @@
         
         
         <ScrollViewer x:Name="MainScroll" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Width="680">
+            <!-- Grid to define the rows for each booking option -->
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
@@ -54,7 +55,9 @@
                            FontSize="12"
                            HorizontalAlignment="Center"
                            Margin="0,0,0,10"/>
-
+                
+                <!-- Collapsable expander to save room and beter UX and UI -->
+                <!-- All below are teh same -->
                 <Expander Height="auto" Header="Māori Flax Weaving Workshop"
                       Foreground="White" Width="550" Grid.Row="2" Margin="0,0,0,10">
                     <Grid Background="#FFE5E5E5">

@@ -53,9 +53,28 @@
                 <!-- Buttons -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,15,0,0">
                     <!-- Save button -->
-                    <Button Content="Save" Width="80" Background="#156aac" Foreground="White" Click="btnSave_Click"/>
+                    <Button Content="Save" Width="80" Background="#156aac" Foreground="White" Click="btnSave_Click" Margin="5">
+                        <!-- Button template to make the corners rounded and match the application aesthetic -->
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="{TemplateBinding Width}" Height="25" CornerRadius="5"
+                Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
                     <!-- Cancel button -->
-                    <Button Content="Cancel" Width="80" Background="#156aac" Foreground="White" Click="btnCancel_Click"/>
+                    <Button Content="Cancel" Width="80" Background="#156aac" Foreground="White" Click="btnCancel_Click" Margin="5">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="5"
+                Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
                 </StackPanel>
 
             </StackPanel>

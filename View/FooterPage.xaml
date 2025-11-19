@@ -13,9 +13,9 @@
     <Grid Grid.Row="2">
         <Image Source="/images/Logo_8.png" HorizontalAlignment="Left" Margin="15,5,5,5"/>
 
-
+        <!-- Horizontal stack panel for the footer menu buttons -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0">
-
+            <!-- Using just words at buttons for a better UI and UX -->
             <Button Name="AboutUs" Background="Transparent" Margin="10,0,0,0"
                     BorderThickness="0" Click="AboutUs_Click">
                 <TextBlock Text="About Us"

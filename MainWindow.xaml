@@ -9,13 +9,17 @@
         Title="HomePageView" Height="550" Width="800"
         WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
         MouseDown="Window_MouseDown" Background="Transparent" AllowsTransparency="True">
-
+    
+    <!-- Setting the corner radius for the application -->
     <Border CornerRadius="35">
-        
+
+        <!-- Setting the background of the bay for the application -->
         <Border.Background>
             <ImageBrush ImageSource="/images/onewhero-bay.jpeg" Stretch="None"/>
         </Border.Background>
+        <!-- Inner border -->
         <Border CornerRadius="30" BorderThickness="5" Opacity="0.93">
+            <!-- setting the gradient colour for the BG and the border to make it more dynamic and not a flat colour -->
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
                     <GradientStop Color="#156aac" Offset="0"/>
@@ -36,13 +40,13 @@
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
 
-                <!-- Header Content Frame -->
+                <!-- Header Content Frame, where the headers will change once logged in -->
                 <Frame x:Name="HeaderFrame"
                        Grid.Row="0"
                        NavigationUIVisibility="Hidden"
                        Background="Transparent"/>
 
-                <!-- Main Content Frame -->
+                <!-- Main Content Frame, used to switch pages when buttons are clicked -->
                 <Border Grid.Row="1"
                         Margin="50,10,50,10"
                         CornerRadius="3"
@@ -56,7 +60,7 @@
 
 
 
-                <!-- Footer Content Frame -->
+                <!-- Footer Content Frame, will change when logged in once again -->
                 <Frame x:Name="FooterFrame"
                        Grid.Row="2"
                        NavigationUIVisibility="Hidden"

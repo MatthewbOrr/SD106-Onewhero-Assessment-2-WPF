@@ -59,7 +59,7 @@
                     </StackPanel>
                 </StackPanel>
 
-                <!-- Areas of Interest -->
+                <!-- Areas of Interest checkboxes -->
                 <StackPanel Grid.Column="1" x:Name="interestPanel">
                     <TextBlock Text="Areas of interest:" Foreground="DarkGray" Margin="0,0,0,10"/>
                     <CheckBox Tag="1" Margin="0,10,0,0">
