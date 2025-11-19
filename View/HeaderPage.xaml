@@ -70,7 +70,7 @@
             </Button>
 
             <Button Name="Dashboard" Background="Transparent" Margin="20,0,0,0"
-                    BorderThickness="0" Click="VisitorDashboard_Click">
+                    BorderThickness="0" Click="Dashboard_Click">
                 <TextBlock Text="Dashboard"
                     Foreground="White"
                     FontSize="14"

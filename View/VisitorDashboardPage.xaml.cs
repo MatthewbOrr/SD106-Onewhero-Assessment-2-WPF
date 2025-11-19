@@ -116,13 +116,13 @@ namespace SD106_Onewhero_Assessment_2.View
                     {
                         bookings.Add(new BookingItem
                         {
-                            booking_id = reader.GetInt32("booking_id"),
-                            event_title = reader.GetString("event_title"),
-                            description = reader.GetString("description"),
-                            event_date = reader.GetDateTime("event_date").ToString("yyyy-MM-dd HH:mm"),
-                            location = reader.GetString("location"),
-                            number_of_tickets = reader.GetInt32("number_of_tickets"),
-                            status = reader.GetString("status")
+                            BookingId = reader.GetInt32("booking_id"),
+                            EventTitle = reader.GetString("event_title"),
+                            Description = reader.GetString("description"),
+                            EventDate = reader.GetDateTime("event_date").ToString("yyyy-MM-dd HH:mm"),
+                            Location = reader.GetString("location"),
+                            NumberOfTickets = reader.GetInt32("number_of_tickets"),
+                            Status = reader.GetString("status")
                         });
                     }
                 }
@@ -171,13 +171,13 @@ namespace SD106_Onewhero_Assessment_2.View
 
     public class BookingItem
     {
-        public int booking_id { get; set; }
-        public string? event_title { get; set; } = string.Empty;
-        public string description { get; set; } = string.Empty;
-        public string event_date { get; set; } = string.Empty;
-        public string? location { get; set; } = string.Empty;
-        public int number_of_tickets { get; set; } 
-        public string? status { get; set; } = string.Empty;
+        public int BookingId { get; set; }
+        public string? EventTitle { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string EventDate { get; set; } = string.Empty;
+        public string? Location { get; set; } = string.Empty;
+        public int NumberOfTickets { get; set; }
+        public string? Status { get; set; } = string.Empty;
     }
 }
 

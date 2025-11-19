@@ -66,11 +66,19 @@ namespace SD106_Onewhero_Assessment_2.View
             mainWindow.MainFrame.Navigate(new BookingPage(mainWindow.CurrentUser.UserId));
         }
 
-        private void VisitorDashboard_Click(object sender, RoutedEventArgs e)
+        private void Dashboard_Click(object sender, RoutedEventArgs e)
         {
             var mainWindow = (MainWindow)Application.Current.MainWindow;
 
-            mainWindow.MainFrame.Navigate(new VisitorDashboardPage(mainWindow.CurrentUser.UserId));
+            if (mainWindow.CurrentUser.Role == "admin")
+            {
+                mainWindow.MainFrame.Navigate(new AdminDashboardPage());
+                return;
+            }
+            else
+            {
+                mainWindow.MainFrame.Navigate(new VisitorDashboardPage(mainWindow.CurrentUser.UserId));
+            }
         }
     }
 }
