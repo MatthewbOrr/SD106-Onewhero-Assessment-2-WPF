@@ -1,10 +1,12 @@
 ﻿# Visitor Management System – Onewhero Bay Heritage Park
 
-This project is a desktop-based Visitor Management System developed for **Onewhero Bay Heritage Park**, a popular tourist destination in New Zealand. Built using **C# WPF** and **MySQL**, the system streamlines visitor registration, event booking, and promotional outreach, while offering administrators powerful tools to manage park operations.
+This project is a desktop-based Visitor Management System developed for **Onewhero Bay Heritage Park**, a popular tourist destination in New Zealand. 
+Built using **C# WPF** and **MySQL**, the system streamlines visitor registration, event booking, and promotional outreach, while offering administrators powerful tools to manage park operations.
 
 # Project Overview
 
-The system was created as part of the Diploma in Software Development (SD106 Integrated Studio II – Assessment 2) at Yoobee College. It follows Agile methodology using the Scrum framework and includes full implementation across UI, backend logic, and database integration.
+The system was created as part of the Diploma in Software Development (SD106 Integrated Studio II – Assessment 2) at Yoobee College. 
+It follows Agile methodology using the Scrum framework and includes full implementation across UI, backend logic, and database integration.
 
 # Key Features
 
@@ -48,6 +50,7 @@ The system was created as part of the Diploma in Software Development (SD106 Int
 # Database Schema
 
 Includes tables for:
+- 'User'
 - `Visitor`
 - `Event`
 - `Booking`
@@ -57,14 +60,28 @@ Includes tables for:
 
 Relationships are defined using foreign keys and cardinality constraints to ensure data integrity.
 
-# How to Run
+# Installation & Setup Guide
 
 1. Clone the repository
+https://github.com/MatthewbOrr/SD106-Onewhero-Assessment-2-WPF/tree/master
+
 2. Set up MySQL database using provided SQL scripts
+- Install MySQL Server and MySQL Workbench
+- Open MySQL Workbench and connect to your MySQL server
+- Run the provided SQL script(visitormanagementsystem-database.sql) to create the database and tables
+
 3. Configure connection string in `App.config`
+- update the connection string with your MySQL server details (server, database, user id, password)
+
 4. Build and run the project in Visual Studio
+- Open the solution file (.sln) in Visual Studio
+- Restore NuGet packages if needed (MySQL Connector, BCrypt.Net-Next))
+- Build the solution
 
-
+5. Run the application
+- Press F5 to launch the application
+- Use the UI to register visitors, book events, and manage park operations.
+- Admin credentials can be found in the database so set up your first admin user by MySql Workbench manually.
 # Team Roles
 
 Product Owner (PO): Matthew

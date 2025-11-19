@@ -7,9 +7,10 @@ namespace SD106_Onewhero_Assessment_2.Model
     {
         public int BookingId { get; set; }
         public string? EventTitle { get; set; }
+        public string? Description { get; set; }
+        public string? EventDate { get; set; }
+        public string? Location { get; set; }
         public int NumberOfTickets { get; set; }
         public string? Status { get; set; }
-
-        public DateTime? BookingDate { get; set; }
     }
 }
