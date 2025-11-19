@@ -7,10 +7,10 @@ using System.Windows.Input;
 namespace SD106_Onewhero_Assessment_2
 {
 
-    public partial class MainWindow : Window, INotifyPropertyChanged
+    public partial class MainWindow : Window, INotifyPropertyChanged // INotifyPropertyChanged interface to notify the UI of property changes
     {
 
-        public User CurrentUser { get; set; }
+        public User? CurrentUser { get; set; } // Property to hold the currently logged-in user
         private string boundText = string.Empty;
         public string BoundText
         {
@@ -18,7 +18,7 @@ namespace SD106_Onewhero_Assessment_2
             set
             {
                 boundText = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(BoundText)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(BoundText))); // Notify UI of property change
             }
         }
         public MainWindow()
@@ -45,9 +45,9 @@ namespace SD106_Onewhero_Assessment_2
             FooterFrame.Navigate(new FooterPage());
         }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged; // Event to notify when a property changes
 
-     
+
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)

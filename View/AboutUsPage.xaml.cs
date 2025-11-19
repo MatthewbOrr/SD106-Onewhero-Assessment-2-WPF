@@ -15,14 +15,17 @@ using System.Windows.Shapes;
 
 namespace SD106_Onewhero_Assessment_2.Model
 {
-    /// <summary>
-    /// Interaction logic for AboutUsPage.xaml
-    /// </summary>
+
     public partial class AboutUsPage : Page
     {
         public AboutUsPage()
         {
             InitializeComponent();
+        }
+
+        private void btnBook_Click(object sender, RoutedEventArgs e) // button click event handler, shows success message
+        {
+            MessageBox.Show("Thanky you for contacting us", "Submission Successful", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

@@ -15,24 +15,22 @@ using System.Windows.Shapes;
 
 namespace SD106_Onewhero_Assessment_2.View
 {
-    /// <summary>
-    /// Interaction logic for LoginHeaderPage.xaml
-    /// </summary>
+    
     public partial class LoginHeaderPage : Page
     {
-        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        private void btnMinimize_Click(object sender, RoutedEventArgs e) //button to minimize the window
         {
-            Window parentWindow = Window.GetWindow(this);
-            if (parentWindow != null)
+            Window parentWindow = Window.GetWindow(this); // Get the parent window of the current page
+            if (parentWindow != null) // Check if the parent window is not null
             {
-                parentWindow.WindowState = WindowState.Minimized;
+                parentWindow.WindowState = WindowState.Minimized; // Minimize the parent window
             }
 
         }
 
-        private void btnClose_Click(object sender, RoutedEventArgs e)
+        private void btnClose_Click(object sender, RoutedEventArgs e) //button to close the application
         {
-            Application.Current.Shutdown();
+            Application.Current.Shutdown(); // Close the application
         }
         public LoginHeaderPage()
         {

@@ -12,14 +12,14 @@ namespace SD106_Onewhero_Assessment_2.Model
         {
             InitializeComponent();
         }
-        private void AboutUs_Click(object sender, RoutedEventArgs e)
+        private void AboutUs_Click(object sender, RoutedEventArgs e) // button to navigate to About Us page
         {
             var mainWindow = (MainWindow)Application.Current.MainWindow;
 
             mainWindow.MainFrame.Navigate(new AboutUsPage());
         }
 
-        private void PrivacyP_Click(object sender, RoutedEventArgs e)
+        private void PrivacyP_Click(object sender, RoutedEventArgs e) // button to navigate to Privacy Policy page
         {
             var mainWindow = (MainWindow)Application.Current.MainWindow;
 

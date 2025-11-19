@@ -11,93 +11,95 @@ namespace SD106_Onewhero_Assessment_2.Model
 
     public partial class RegisterPage : Page
     {
-        public RegisterPage()
+        public RegisterPage() // RegisterPage constructor
         {
             InitializeComponent();
         }
 
-        private void Hyperlink_Login_Click(object sender, RoutedEventArgs e)
-         {
-            NavigationService?.Navigate(new LoginPage());
-         }
-
-        private void btnRegister_Click(object sender, RoutedEventArgs e)
+        private void Hyperlink_Login_Click(object sender, RoutedEventArgs e) // navigate to login page
         {
-            string name = txtName.Text;
-            string email = txtEmail.Text;
-            string phone = txtPhone.Text;
-            string password = txtPassword.Password;
+            NavigationService?.Navigate(new LoginPage()); // navigate to login page
+        }
 
-            if (string.IsNullOrWhiteSpace(name) ||
-                string.IsNullOrWhiteSpace(email) ||
+        private void btnRegister_Click(object sender, RoutedEventArgs e) // button click event to register
+        {
+            string name = txtName.Text; // get name from textbox
+            string email = txtEmail.Text; // get email from textbox
+            string phone = txtPhone.Text; // get phone from textbox
+            string password = txtPassword.Password; // get password from passwordbox
+
+            /// Validate input fields
+            if (string.IsNullOrWhiteSpace(name) || 
+                string.IsNullOrWhiteSpace(email) || 
                 string.IsNullOrWhiteSpace(phone) ||
                 string.IsNullOrWhiteSpace(password))
+            /// If any field is empty, show message and return
             {
                 MessageBox.Show("Please fill in all required fields.");
                 return;
             }
+            
 
 
+            string hashed = BCrypt.Net.BCrypt.HashPassword(password); // hash the password
 
-            string hashed = BCrypt.Net.BCrypt.HashPassword(password);
-
-            using var conn = DBHelper.GetConnection();
-            conn.Open();
-            var tran = conn.BeginTransaction();
+            using var conn = DBHelper.GetConnection(); // get database connection
+            conn.Open(); // open connection
+            var tran = conn.BeginTransaction(); // begin transaction
 
             try
             {
 
 
-                var CheckCmd = new MySqlCommand("SELECT COUNT(*) FROM User WHERE email = @e", conn, tran);
-                CheckCmd.Parameters.AddWithValue("@e", email);
-                long count = (long)CheckCmd.ExecuteScalar();
-                if (count > 0)
+                var CheckCmd = new MySqlCommand("SELECT COUNT(*) FROM User WHERE email = @e", conn, tran); // check if email already exists
+                CheckCmd.Parameters.AddWithValue("@e", email); // set email parameter
+                long count = (long)CheckCmd.ExecuteScalar(); // execute SQL command and get count
+                if (count > 0) // if email already exists
                 {
-                    MessageBox.Show("Email already registered. Please use a different email.");
-                    tran.Rollback();
+                    MessageBox.Show("Email already registered. Please use a different email."); // show error message
+                    tran.Rollback(); // rollback transaction
                     return;
                 }
 
-                var cmdUser = new MySqlCommand("INSERT INTO User (name, email, Phone, password_hash, role) VALUES (@n, @e, @p, @ph, 'visitor')", conn, tran);
-                cmdUser.Parameters.AddWithValue("@n", name);
-                cmdUser.Parameters.AddWithValue("@e", email);
-                cmdUser.Parameters.AddWithValue("@p", phone);
-                cmdUser.Parameters.AddWithValue("@ph", hashed);
-                cmdUser.ExecuteNonQuery();
-                
-                int userId = Convert.ToInt32(cmdUser.LastInsertedId);
-                MessageBox.Show("New User ID: " + userId);
+                var cmdUser = new MySqlCommand("INSERT INTO User (name, email, Phone, password_hash, role) VALUES (@n, @e, @p, @ph, 'visitor')", conn, tran); // SQL command to insert new user
+                cmdUser.Parameters.AddWithValue("@n", name); // set name parameter
+                cmdUser.Parameters.AddWithValue("@e", email); // set email parameter
+                cmdUser.Parameters.AddWithValue("@p", phone); // set phone parameter
+                cmdUser.Parameters.AddWithValue("@ph", hashed); // set password hash parameter
+                cmdUser.ExecuteNonQuery(); // execute SQL command
+
+                int userId = Convert.ToInt32(cmdUser.LastInsertedId); // get the last inserted user ID
+                MessageBox.Show("New User ID: " + userId); // show new user ID
 
                 var cmdVisitor = new MySqlCommand(@"
-                INSERT INTO Visitor (visitor_id, registered_date) VALUES (@uid, @reg)", conn, tran);
-                cmdVisitor.Parameters.AddWithValue("@uid", userId);
-                cmdVisitor.Parameters.AddWithValue("@reg", DateTime.Now);
-                cmdVisitor.ExecuteNonQuery();
-                MessageBox.Show("Visitor record inserted for user ID: " + userId);
+                INSERT INTO Visitor (visitor_id, registered_date) VALUES (@uid, @reg)", conn, tran); // SQL command to insert visitor record
+                cmdVisitor.Parameters.AddWithValue("@uid", userId); // set user ID parameter
+                cmdVisitor.Parameters.AddWithValue("@reg", DateTime.Now); // set registered date parameter
+                cmdVisitor.ExecuteNonQuery(); // execute SQL command
+                MessageBox.Show("Visitor record inserted for user ID: " + userId); // show message
 
-                foreach (CheckBox cb in interestPanel.Children.OfType<CheckBox>())
+                foreach (CheckBox cb in interestPanel.Children.OfType<CheckBox>()) // loop through interest checkboxes
                 {
-                    if (cb.IsChecked == true)
+                    if (cb.IsChecked == true) // if checkbox is checked
                     {
-                        int interestId = Convert.ToInt32(cb.Tag);
+                        int interestId = Convert.ToInt32(cb.Tag); // get interest ID from checkbox tag. ToInt32 is used to convert the tag to integer
                         var cmdInterest = new MySqlCommand(
-                            @"INSERT INTO VisitorInterest (visitor_id, interest_id) VALUES (@uid, @iid)", conn, tran);
-                        cmdInterest.Parameters.AddWithValue("@uid", userId);
-                        cmdInterest.Parameters.AddWithValue("@iid", interestId);
-                        cmdInterest.ExecuteNonQuery();
+                            @"INSERT INTO VisitorInterest (visitor_id, interest_id) VALUES (@uid, @iid)", conn, tran); // SQL command to insert visitor interest
+                        cmdInterest.Parameters.AddWithValue("@uid", userId); // set user ID parameter
+                        cmdInterest.Parameters.AddWithValue("@iid", interestId); // set interest ID parameter
+                        cmdInterest.ExecuteNonQuery(); // execute SQL command
                     }
                 }
 
-                tran.Commit();
-                MessageBox.Show("Registration Successful!");
-                NavigationService?.Navigate(new LoginPage());
-            
+                tran.Commit(); // commit transaction
+                MessageBox.Show("Registration Successful!"); // show success message
+                NavigationService?.Navigate(new LoginPage()); // navigate to login page
+
             }
-            catch (Exception ex)
+            catch (Exception ex) // catch any exception
             {
-                tran.Rollback();
-                MessageBox.Show("Registration Failed: " + ex.Message);
+                tran.Rollback(); // rollback transaction
+                MessageBox.Show("Registration Failed: " + ex.Message); // show error message
             }
         }
     }

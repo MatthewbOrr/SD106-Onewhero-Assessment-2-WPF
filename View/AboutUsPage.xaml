@@ -60,7 +60,7 @@ You can register and book online through our Visitor Portal. Simply create an ac
                 <!-- Submit Button -->
                 <Button Grid.Row="1" Name="btnBook" Width="100" Height="28" HorizontalAlignment="Center"
                         Background="#156aac" BorderThickness="0" Content="Submit" Foreground="White"
-                        FontSize="16" FontFamily="Arial" Cursor="Hand" Margin="20">
+                        FontSize="16" FontFamily="Arial" Cursor="Hand" Margin="20" Click="btnBook_Click">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="5"
