@@ -65,7 +65,16 @@
 
         <!-- Upcoming Events -->
         <TextBlock Grid.Row="2" Text="Upcoming Booked events" Foreground="White" FontSize="18" FontWeight="Bold" Margin="0,0,0,10" VerticalAlignment="center"/>
-        <Button Grid.Row="2" Content="Cancel Booking" Width="100" Height="30" Background="#156AAC" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="center" Cursor="Hand" Click="CancelBooking_Click" Margin="10"/>
+        <Button Grid.Row="2" Content="Cancel Booking" Width="100" Height="30" Background="#156AAC" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="center" Cursor="Hand" Click="CancelBooking_Click" Margin="10">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="5"
+Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
         <Grid Grid.Row="3">
             <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
                 <DataGrid Name="dataUpcomingEvents"
