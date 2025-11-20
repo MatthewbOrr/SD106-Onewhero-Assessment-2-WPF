@@ -1,7 +1,7 @@
 
 -- Database Creation
 
-CREATE DATABASE IF NOT EXISTS visitor_management_v2
+CREATE DATABASE IF NOT EXISTS visitor_management
 CHARACTER SET utf8mb4
 COLLATE utf8mb4_unicode_ci;
 USE visitor_management;
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS Admin (
 
 -- 4. Event table
 CREATE TABLE IF NOT EXISTS Event (
-    event_id VARCHAR(50) PRIMARY KEY,   -- 변경된 타입 반영
+    event_id VARCHAR(50) PRIMARY KEY,  
     title VARCHAR(200) NOT NULL,
     description TEXT,
     date DATETIME,
@@ -49,11 +49,11 @@ CREATE TABLE IF NOT EXISTS Event (
 -- 5. Booking table
 CREATE TABLE IF NOT EXISTS Booking (
     booking_id INT AUTO_INCREMENT PRIMARY KEY,
-    event_id VARCHAR(50) NOT NULL,      -- 변경된 타입 반영
+    event_id VARCHAR(50) NOT NULL,      
     visitor_id INT NOT NULL,
     booking_datetime DATETIME DEFAULT CURRENT_TIMESTAMP,
     number_of_tickets INT DEFAULT 1,
-    status VARCHAR(50) DEFAULT 'pending',   -- 변경된 타입 반영
+    status VARCHAR(50) DEFAULT 'pending',   
     FOREIGN KEY (visitor_id) REFERENCES Visitor(visitor_id) ON DELETE CASCADE,
     FOREIGN KEY (event_id) REFERENCES Event(event_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
@@ -84,9 +84,9 @@ CREATE TABLE IF NOT EXISTS VisitorInterest (
     FOREIGN KEY (interest_id) REFERENCES Interest(interest_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
--- =========================================
+
 -- Initial Data Inserts
--- =========================================
+
 
 -- Admin account
 INSERT INTO User (name, email, password_hash, phone, role)
